@@ -1,0 +1,1763 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS & et al.-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="resources/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/themes/dark-unica.js"></script>
+   
+
+    <title>My Calendar Experiment</title>
+ 
+
+
+
+</head>
+  
+  <body>
+    <div class="hero container-fluid" id="hero" style="padding-left: 0px; padding-right: 0px;">
+        <!--backgrounds-->
+        <div class="snowflakes" id="snowflakes" aria-hidden="true">
+            <div>
+                <div class="snowflakeTopA" style="left: 5%;">
+                ❄
+                </div>
+                <div class="snowflakeTopA" style="left: 1%;">
+                ❆
+                </div>
+                <div class="snowflakeTopA" style="left: 9%;">
+                ❆
+                </div>
+                <div class="snowflakeTopA" style="left: 13%;">
+                ❄
+                </div>
+                <div class="snowflakeTopA" style="left: 0%;">
+                ❆
+                </div>
+                <div class="snowflakeTopA" style="left: 2%;">
+                ❅
+                </div>
+                <div class="snowflakeTopA" style="left: 14%;">
+                ❆
+                </div>
+            </div>
+            <div>
+                <div class="snowflakeTopB" style="left: 11%;">
+                ❅
+                </div>            
+                <div class="snowflakeTopB" style="left: 6%;">
+                ❄
+                </div>
+                <div class="snowflakeTopB" style="left: 4%;">
+                ❅
+                </div>            
+                <div class="snowflakeTopB" style="left: 12%;">
+                ❅
+                </div>           
+                <div class="snowflakeTopB" style="left: 9%;">
+                ❄
+                </div>
+                <div class="snowflakeTopB" style="left: 2%;">
+                ❅
+                </div>            
+                <div class="snowflakeTopB" style="left: 14%;">
+                ❅
+                </div>
+            </div>
+            
+            <div>
+                <div class="snowflakeTopA" style="left: 86%;">
+                ❄
+                </div>
+                <div class="snowflakeTopA" style="left: 90%;">
+                ❆
+                </div>
+                <div class="snowflakeTopA" style="left: 95%;">
+                ❆
+                </div>
+                <div class="snowflakeTopA" style="left: 99%;">
+                ❄
+                </div>
+                <div class="snowflakeTopA" style="left: 94%;">
+                ❆
+                </div>
+                <div class="snowflakeTopA" style="left: 88%;">
+                ❅
+                </div>
+                <div class="snowflakeTopA" style="left: 100%;">
+                ❆
+                </div>
+            </div>
+            <div>
+                <div class="snowflakeTopB" style="left: 97%;">
+                ❅
+                </div>            
+                <div class="snowflakeTopB" style="left: 92%;">
+                ❄
+                </div>
+                <div class="snowflakeTopB" style="left: 100%;">
+                ❅
+                </div>            
+                <div class="snowflakeTopB" style="left: 88%;">
+                ❅
+                </div>           
+                <div class="snowflakeTopB" style="left: 95%;">
+                ❄
+                </div>
+                <div class="snowflakeTopB" style="left: 98%;">
+                ❅
+                </div>            
+                <div class="snowflakeTopB" style="left: 90%;">
+                ❅
+                </div>
+            </div>
+            <div>
+                <div class="snowflakeBot" style="--animation-order: 1; left: 4%; --rot: 70;">
+                ❅
+                </div>            
+                <div class="snowflakeBot" style="--animation-order: 2; left: 3%; --rot: 0;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 3; left: 13%; --rot: 76;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 4; left: 5%; --rot: 71;">
+                ❆
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 5; left: 11%; --rot: 0;">
+                ❅
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 6; left: 7%; --rot: -43;">
+                ❅
+                </div>            
+                <div class="snowflakeBot" style="--animation-order: 7; left: 8%; --rot: -23;">
+                ❅
+                </div>           
+                <div class="snowflakeBot" style="--animation-order: 8; left: 0%; --rot: 59;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 9; left: 7%; --rot: -15;">
+                ❅
+                </div>            
+                <div class="snowflakeBot" style="--animation-order: 10; left: 11%; --rot: 0;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 11; left: 12%; --rot: -85;">
+                ❆
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 12; left: 7%; --rot: 34;">
+                ❅
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 13; left: 12%; --rot: 99;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 14; left: 8%; --rot: -9;">
+                ❅
+                </div>
+            </div>
+
+            <div>
+                <div class="snowflakeBot" style="--animation-order: 14; left: 90%; --rot: 70;">
+                ❅
+                </div>            
+                <div class="snowflakeBot" style="--animation-order: 13; left: 89%; --rot: 0;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 12; left: 99%; --rot: 76;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 11; left: 91%; --rot: 71;">
+                ❆
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 10; left: 97%; --rot: 0;">
+                ❅
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 9; left: 93%; --rot: -43;">
+                ❅
+                </div>            
+                <div class="snowflakeBot" style="--animation-order: 8; left: 94%; --rot: -23;">
+                ❅
+                </div>           
+                <div class="snowflakeBot" style="--animation-order: 7; left: 86%; --rot: 59;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 6; left: 93%; --rot: -15;">
+                ❅
+                </div>            
+                <div class="snowflakeBot" style="--animation-order: 5; left: 97%; --rot: 0;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 4; left: 98%; --rot: -85;">
+                ❆
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 3; left: 93%; --rot: 34;">
+                ❅
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 2; left: 87%; --rot: 99;">
+                ❄
+                </div>
+                <div class="snowflakeBot" style="--animation-order: 1; left: 94%; --rot: -9;">
+                ❅
+                </div>
+            </div>
+
+
+
+          </div>
+         
+          <div class="fadeOut" id="raining">
+            <canvas class="rain" id="c"></canvas>
+         </div> 
+         
+         <div class="leaves fadeOut" id="leaves">        
+               <div>
+                    <div class="leafTopA" style="left: 5%;">
+                        <i class="fa1 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 1%;">
+                        <i class="fa1 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 9%;">
+                        <i class="fa3 fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 13%;">
+                        <i class="fa2 fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 0%;">
+                        <i class="fa1 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 2%;">
+                        <i class="fa2 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 14%;">
+                        <i class="fa3 fa-leaf" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="leafTopB" style="left: 11%;">
+                        <i class="fa3 fa-leaf" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafTopB" style="left: 6%;">
+                        <i class="fa3 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopB" style="left: 4%;">
+                        <i class="fa1 fa-leaf" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafTopB" style="left: 12%;">
+                        <i class="fa2 fa-envira" aria-hidden="true"></i>
+                    </div>           
+                    <div class="leafTopB" style="left: 9%;">
+                        <i class="fa2 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopB" style="left: 2%;">
+                        <i class="fa3 fa-leaf" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafTopB" style="left: 14%;">
+                        <i class="fa1 fa-envira" aria-hidden="true"></i>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="leafTopA" style="left: 86%;">
+                        <i class="fa1 fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 90%;">
+                        <i class="fa2 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 95%;">
+                        <i class="fa3 fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 99%;">
+                        <i class="fa3 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 94%;">
+                        <i class="fa2 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 88%;">
+                        <i class="fa1 fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopA" style="left: 100%;">
+                        <i class="fa3 fa-leaf" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="leafTopB" style="left: 97%;">
+                        <i class="fa2 fa-envira" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafTopB" style="left: 92%;">
+                        <i class="fa3 fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopB" style="left: 100%;">
+                        <i class="fa1 fa-envira" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafTopB" style="left: 88%;">
+                        <i class="fa1 fa-envira" aria-hidden="true"></i>
+                    </div>           
+                    <div class="leafTopB" style="left: 95%;">
+                        <i class="fa1 fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafTopB" style="left: 98%;">
+                        <i class="fa1 fa-leaf" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafTopB" style="left: 90%;">
+                        <i class="fa3 fa-envira" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="leafBot" style="--animation-order: 1; left: 4%; --rot: 70;">
+                        <i class="fa1B fa-leaf" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafBot" style="--animation-order: 2; left: 3%; --rot: 0;">
+                        <i class="fa1B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 3; left: 13%; --rot: 76;">
+                        <i class="fa2B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 4; left: 5%; --rot: 71;">
+                        <i class="fa3B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 5; left: 11%; --rot: 0;">
+                        <i class="fa3B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 6; left: 7%; --rot: -43;">
+                        <i class="fa3B fa-envira" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafBot" style="--animation-order: 7; left: 8%; --rot: -23;">
+                        <i class="fa1B fa-leaf" aria-hidden="true"></i>
+                    </div>           
+                    <div class="leafBot" style="--animation-order: 8; left: 0%; --rot: 59;">
+                        <i class="fa1B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 9; left: 7%; --rot: -15;">
+                        <i class="fa2B fa-envira" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafBot" style="--animation-order: 10; left: 11%; --rot: 0;">
+                        <i class="fa2B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 11; left: 12%; --rot: -85;">
+                        <i class="fa3B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 12; left: 7%; --rot: 34;">
+                        <i class="fa1B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 13; left: 12%; --rot: 99;">
+                        <i class="fa1B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 14; left: 8%; --rot: -9;">
+                        <i class="fa2B fa-envira" aria-hidden="true"></i>
+                    </div>
+                </div>
+    
+                <div>
+                    <div class="leafBot" style="--animation-order: 14; left: 90%; --rot: 70;">
+                        <i class="fa2B fa-envira" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafBot" style="--animation-order: 13; left: 89%; --rot: 0;">
+                        <i class="fa1B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 12; left: 99%; --rot: 76;">
+                        <i class="fa3B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 11; left: 91%; --rot: 71;">
+                        <i class="fa1B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 10; left: 97%; --rot: 0;">
+                        <i class="fa2B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 9; left: 93%; --rot: -43;">
+                        <i class="fa3B fa-leaf" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafBot" style="--animation-order: 8; left: 94%; --rot: -23;">
+                        <i class="fa1B fa-leaf" aria-hidden="true"></i>
+                    </div>           
+                    <div class="leafBot" style="--animation-order: 7; left: 86%; --rot: 59;">
+                        <i class="fa1B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 6; left: 93%; --rot: -15;">
+                        <i class="fa3B fa-leaf" aria-hidden="true"></i>
+                    </div>            
+                    <div class="leafBot" style="--animation-order: 5; left: 97%; --rot: 0;">
+                        <i class="fa2B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 4; left: 98%; --rot: -85;">
+                        <i class="fa1B fa-envira" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 3; left: 93%; --rot: 34;">
+                        <i class="fa1B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 2; left: 87%; --rot: 99;">
+                        <i class="fa2B fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="leafBot" style="--animation-order: 1; left: 94%; --rot: -9;">
+                        <i class="fa3B fa-envira" aria-hidden="true"></i>
+                    </div>
+                </div>
+          
+              
+        </div>
+
+        <div class="summer fadeOut" id="sky">
+            <div class="theSun">
+                <div class="ray_box">
+                    <div class="ray ray1"></div>
+                    <div class="ray ray2"></div>
+                    <div class="ray ray3"></div>
+                    <div class="ray ray4"></div>
+                    <div class="ray ray5"></div>
+                    <div class="ray ray6"></div>
+                    <div class="ray ray7"></div>
+                    <div class="ray ray8"></div>
+                    <div class="ray ray9"></div>
+                    <div class="ray ray10"></div>
+                </div>
+            </div>        
+            <div class="cloudwrapperTwo">
+                <div class="cloud c2"></div>
+            </div>
+            <div class="cloudwrapperThree">
+                <div class="cloud c3"></div>
+            </div>
+        
+        
+        </div>
+       
+         
+         
+<div class="container-fluid" style="padding-left: 0px; padding-right: 0px;">
+    <!-- Nav bar-->
+    <nav class="container navbar navbar-expand-lg navbar-dark bg-dark bg-override">
+      <div class="container">
+        <a class="navbar-brand" href="#"><a class="navbar-brand" href="#"><img src="resources/images/logo-main.svg"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item "><span class="nav-link fs-6 text-white align-bottom">Change theme:</span></li>
+            <li class="nav-item"><a class="nav-link px-3" id="clickMe" href="#" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" onclick="springBackground()">Spring</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="#" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" onclick="summerBackground()">Summer</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="#" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" onclick="fallBackground()">Fall</a></li>
+            <li class="nav-item"><a class="nav-link px-3" href="#" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" onclick="winterBackground()">Winter</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+   <!--Carousel--> 
+     <div class="container" style="padding-left: 0px; padding-right: 0px;">
+     <div id="carouselExampleCaptions" class="carousel slide bshadow first" data-bs-ride="carousel" data-bs-interval="0">
+      <!--Carousel indicators-->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+      <!--Carousel slides-->
+        <div class="carousel-inner">
+         <div class="carousel-item active drk">
+            <img src="resources/images/winter.jpg" class="d-block w-100" alt="Winter">
+            <div class="carousel-caption d-none d-md-block">
+               <h5>WINTER</h5>
+            </div>
+         </div> 
+        <div class="carousel-item drk">
+          <img src="resources/images/spring.jpg" class="d-block w-100" alt="Spring">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>SPRING</h5>
+          </div>
+        </div>
+        <div class="carousel-item drk">
+          <img src="resources/images/summer.jpg" class="d-block w-100" alt="Summer">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>SUMMER</h5>
+          </div>
+        </div>
+        <div class="carousel-item drk">
+          <img src="resources/images/fall.jpg" class="d-block w-100" alt="Fall">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>FALL</h5>
+          </div>
+          </div>
+      </div>
+      </div>
+     </div>
+
+
+    <!--First section-->
+    <div class="container">
+        <div class="row first">
+            <div class="col-md-6 p-5 text-center d-flex align-items-center justify-content-center overflow-hidden bshadow">
+            <div>
+                <h2>A website for all seasons</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus.</p>
+                <p class="lead">Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+            </div>
+            </div>
+            <div class="col-md-6 py-4 d-flex align-items-center justify-content-center overflow-hidden bshadow">
+            <div><img src="resources/images/all seasons-01.svg" class="img-fluid"></div>
+            </div>
+        </div>
+    </div>
+   
+<!--Graphs section-->
+  <div class="container bg-dark bshadow first">
+     <div class="row firstdark">
+      <div class="col-md-5 mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <figure class="highcharts-figure">
+         <div id="chart1"></div> 
+        </figure>
+      </div>
+      
+      <div class="col-md-7 mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <figure class="highcharts-figure">
+          <div id="chart2"></div> 
+         </figure>
+       </div>
+      </div>
+    </div>
+ 
+
+<div class="container-fluid" style="padding-left: 0px; padding-right: 0px;">
+    <!--Table section-->
+    <div class="container first p-0 bshadow">
+        <div class="row justify-content-center">
+        <div class="col-md-8 mr-md-3 py-5 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+            <table id="myTable" class="display dt-responsive nowrap" style="width:100%">
+            <thead>
+            <tr>
+                <th>Continent</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Year Avg (°C)</th>
+                <th>Jan</th>
+                <th>Feb</th>
+                <th>Mar</th>
+                <th>Apr</th>
+                <th>May</th>
+                <th>Jun</th>
+                <th>Jul</th>
+                <th>Aug</th>
+                <th>Sep</th>
+                <th>Oct</th>
+                <th>Nov</th>
+                <th>Dec</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr><td>Africa</td><td>Algeria</td><td>Algiers</td><td>17.4</td><td>11.2</td><td>11.9</td><td>12.8</td><td>14.7</td><td>17.7</td><td>21.3</td><td>24.6</td><td>25.2</td><td>23.2</td><td>19.4</td><td>15.2</td><td>12.1</td><td>36.75465109</td><td>3.057540585</td></tr>
+    <tr><td>Africa</td><td>Algeria</td><td>Tamanrasset</td><td>21.7</td><td>12.8</td><td>15</td><td>18.1</td><td>22.2</td><td>26.1</td><td>28.9</td><td>28.7</td><td>28.2</td><td>26.5</td><td>22.4</td><td>17.3</td><td>13.9</td><td>22.8247758</td><td>5.537030041</td></tr>
+    <tr><td>Africa</td><td>Algeria</td><td>Reggane</td><td>28.3</td><td>16</td><td>18.2</td><td>23.1</td><td>27.9</td><td>32.2</td><td>36.4</td><td>39.8</td><td>38.4</td><td>35.5</td><td>29.2</td><td>22</td><td>17.8</td><td>25.65079477</td><td>-1.791409646</td></tr>
+    <tr><td>Africa</td><td>Angola</td><td>Luanda</td><td>25.8</td><td>26.7</td><td>28.5</td><td>28.6</td><td>28.2</td><td>27</td><td>23.9</td><td>22.1</td><td>22.1</td><td>23.5</td><td>25.2</td><td>26.7</td><td>26.9</td><td>-8.816886949</td><td>13.23157392</td></tr>
+    <tr><td>Africa</td><td>Benin</td><td>Cotonou</td><td>27.2</td><td>27.3</td><td>28.5</td><td>28.9</td><td>28.6</td><td>27.8</td><td>26.5</td><td>25.8</td><td>25.6</td><td>26</td><td>26.7</td><td>27.6</td><td>27.3</td><td>6.369913004</td><td>2.392057861</td></tr>
+    <tr><td>Africa</td><td>Benin</td><td>Parakou</td><td>26.8</td><td>26.5</td><td>28.7</td><td>29.6</td><td>29</td><td>27.5</td><td>26.1</td><td>25.1</td><td>24.7</td><td>25</td><td>26.1</td><td>26.6</td><td>26.1</td><td>9.342021686</td><td>2.627963501</td></tr>
+    <tr><td>Africa</td><td>Benin</td><td>Kandi</td><td>27.7</td><td>24.9</td><td>27.8</td><td>30.9</td><td>32.1</td><td>30.4</td><td>28.1</td><td>26.4</td><td>26</td><td>26.2</td><td>27.8</td><td>26.5</td><td>24.8</td><td>11.1303668</td><td>2.932790807</td></tr>
+    <tr><td>Africa</td><td>Botswana</td><td>Maun</td><td>22.4</td><td>25.4</td><td>25.1</td><td>24.2</td><td>22.6</td><td>18.7</td><td>15.7</td><td>15.8</td><td>18.8</td><td>23.1</td><td>26.6</td><td>26.4</td><td>25.8</td><td>-20.00165227</td><td>23.43349415</td></tr>
+    <tr><td>Africa</td><td>Botswana</td><td>Gaborone</td><td>21</td><td>26</td><td>25</td><td>24</td><td>21</td><td>17</td><td>13</td><td>13</td><td>17</td><td>21</td><td>23</td><td>25</td><td>25</td><td>-24.62864206</td><td>25.92638259</td></tr>
+    <tr><td>Africa</td><td>Botswana</td><td>Ghanzi</td><td>21.4</td><td>25.9</td><td>25.3</td><td>24.1</td><td>21.2</td><td>17.6</td><td>14.3</td><td>14.1</td><td>17.1</td><td>21.5</td><td>24.6</td><td>25.7</td><td>26.1</td><td>-21.69611023</td><td>21.64817317</td></tr>
+    <tr><td>Africa</td><td>Burkina Faso</td><td>Ouagadougou</td><td>28.3</td><td>24.8</td><td>27.7</td><td>30.9</td><td>32.6</td><td>31.6</td><td>29.2</td><td>27.3</td><td>26.4</td><td>27</td><td>28.9</td><td>27.7</td><td>25.1</td><td>12.35714163</td><td>-1.525515931</td></tr>
+    <tr><td>Africa</td><td>Burkina Faso</td><td>Ouahigouya</td><td>28.6</td><td>24.2</td><td>27.1</td><td>30.4</td><td>33</td><td>33.2</td><td>30.8</td><td>27.9</td><td>27.2</td><td>27.8</td><td>29.6</td><td>27.4</td><td>24.6</td><td>13.56738081</td><td>-2.412378885</td></tr>
+    <tr><td>Africa</td><td>Burundi</td><td>Bujumbura</td><td>23.8</td><td>23.8</td><td>23.8</td><td>23.7</td><td>23.9</td><td>23.9</td><td>23.3</td><td>22.9</td><td>24</td><td>24.7</td><td>24.6</td><td>23.4</td><td>23.6</td><td>-3.360560798</td><td>29.35540679</td></tr>
+    <tr><td>Africa</td><td>Cameroon</td><td>Garoua</td><td>28.3</td><td>26</td><td>28.9</td><td>32.2</td><td>33</td><td>30.7</td><td>28.2</td><td>26.6</td><td>26.4</td><td>26.7</td><td>28.1</td><td>27.3</td><td>26</td><td>9.323686571</td><td>13.39314878</td></tr>
+    <tr><td>Africa</td><td>Cameroon</td><td>Ngaoundéré</td><td>22</td><td>20.5</td><td>22.2</td><td>24.1</td><td>24.1</td><td>23.1</td><td>22.1</td><td>21.5</td><td>22.5</td><td>21.7</td><td>22.1</td><td>20.9</td><td>20.4</td><td>7.337147851</td><td>13.57024165</td></tr>
+    <tr><td>Africa</td><td>Cameroon</td><td>Douala</td><td>26.7</td><td>27.5</td><td>28.1</td><td>27.8</td><td>27.6</td><td>27.2</td><td>26.2</td><td>25.1</td><td>24.9</td><td>25.6</td><td>26.1</td><td>26.9</td><td>27.2</td><td>4.052339209</td><td>9.770984783</td></tr>
+    <tr><td>Africa</td><td>Cameroon</td><td>Yaoundé</td><td>23.8</td><td>23.7</td><td>25.3</td><td>25</td><td>24.6</td><td>24.1</td><td>23.4</td><td>22.6</td><td>23</td><td>23.1</td><td>23.3</td><td>23.7</td><td>23.7</td><td>3.844689577</td><td>11.51457072</td></tr>
+    <tr><td>Africa</td><td>Cape Verde</td><td>Praia</td><td>24.4</td><td>22.4</td><td>22.2</td><td>22.9</td><td>23.4</td><td>24</td><td>24.9</td><td>25.4</td><td>26.2</td><td>26.8</td><td>26.4</td><td>25.4</td><td>23.4</td><td>14.93412281</td><td>-23.51411155</td></tr>
+    <tr><td>Africa</td><td>Central African Republic</td><td>Bangui</td><td>26</td><td>26</td><td>27.1</td><td>27.4</td><td>27.1</td><td>26.5</td><td>25.3</td><td>25.1</td><td>25.1</td><td>25.4</td><td>25.5</td><td>25.7</td><td>25.7</td><td>4.394310395</td><td>18.56140573</td></tr>
+    <tr><td>Africa</td><td>Central African Republic</td><td>Birao</td><td>26.5</td><td>23.6</td><td>26.7</td><td>29</td><td>29.6</td><td>30</td><td>28</td><td>25.9</td><td>25.4</td><td>26.2</td><td>26.6</td><td>24.5</td><td>22.2</td><td>10.29321098</td><td>22.78201287</td></tr>
+    <tr><td>Africa</td><td>Chad</td><td>N'Djamena</td><td>28.3</td><td>23.3</td><td>26.9</td><td>30.4</td><td>33.8</td><td>33.5</td><td>31</td><td>28.2</td><td>26.5</td><td>27.8</td><td>29.2</td><td>27.3</td><td>24</td><td>12.11920246</td><td>15.06912964</td></tr>
+    <tr><td>Africa</td><td>Chad</td><td>Abéché</td><td>29.4</td><td>26.8</td><td>28.1</td><td>31.2</td><td>33.3</td><td>33.2</td><td>32.2</td><td>28.7</td><td>27</td><td>28.4</td><td>30</td><td>28.5</td><td>25.9</td><td>13.83020973</td><td>20.83723397</td></tr>
+    <tr><td>Africa</td><td>Democratic Republic of the Congo</td><td>Kinshasa</td><td>25.3</td><td>26</td><td>26.2</td><td>26.7</td><td>26.8</td><td>26</td><td>23.7</td><td>22.2</td><td>23.5</td><td>25.3</td><td>26</td><td>25.9</td><td>25.6</td><td>-4.443051306</td><td>15.26574394</td></tr>
+    <tr><td>Africa</td><td>Democratic Republic of the Congo</td><td>Lubumbashi</td><td>20.8</td><td>21.8</td><td>21.6</td><td>21.8</td><td>21.4</td><td>19.2</td><td>17</td><td>16.8</td><td>19.1</td><td>22.2</td><td>23.8</td><td>22.8</td><td>21.8</td><td>-11.68710104</td><td>27.5066526</td></tr>
+    <tr><td>Africa</td><td>Djibouti</td><td>Djibouti</td><td>29.9</td><td>25.1</td><td>25.7</td><td>27</td><td>28.7</td><td>31</td><td>34.2</td><td>36.4</td><td>36</td><td>33.1</td><td>29.3</td><td>26.9</td><td>25.4</td><td>11.76169153</td><td>42.50911705</td></tr>
+    <tr><td>Africa</td><td>Egypt</td><td>Cairo</td><td>21.4</td><td>13.6</td><td>14.9</td><td>16.9</td><td>21.2</td><td>24.5</td><td>27.3</td><td>27.6</td><td>27.4</td><td>26</td><td>23.3</td><td>18.9</td><td>15</td><td>30.232988</td><td>31.3027111</td></tr>
+    <tr><td>Africa</td><td>Egypt</td><td>Alexandria</td><td>20</td><td>13.4</td><td>13.9</td><td>15.7</td><td>18.5</td><td>21.2</td><td>24.3</td><td>25.9</td><td>26.3</td><td>25.1</td><td>22</td><td>18.7</td><td>14.9</td><td>31.19502188</td><td>29.91711834</td></tr>
+    <tr><td>Africa</td><td>Equatorial Guinea</td><td>Bata</td><td>25.1</td><td>25.6</td><td>25.8</td><td>25.7</td><td>25.6</td><td>25.6</td><td>25</td><td>24.1</td><td>24.2</td><td>24.6</td><td>24.8</td><td>25.2</td><td>25</td><td>1.852851329</td><td>9.776608318</td></tr>
+    <tr><td>Africa</td><td>Equatorial Guinea</td><td>Malabo</td><td>26.3</td><td>26.9</td><td>27.7</td><td>27.6</td><td>27.2</td><td>26.7</td><td>25.9</td><td>25.3</td><td>25</td><td>25.1</td><td>25.5</td><td>26.1</td><td>26.6</td><td>3.764524721</td><td>8.709919723</td></tr>
+    <tr><td>Africa</td><td>Eritrea</td><td>Asmara</td><td>15.6</td><td>13.8</td><td>14.9</td><td>16.3</td><td>17</td><td>17.6</td><td>17.6</td><td>16.3</td><td>16.1</td><td>15.7</td><td>14.9</td><td>14</td><td>13.2</td><td>15.32498654</td><td>38.92428104</td></tr>
+    <tr><td>Africa</td><td>Eritrea</td><td>Assab</td><td>30.5</td><td>26.3</td><td>26.7</td><td>28.5</td><td>30.5</td><td>32</td><td>33.1</td><td>35</td><td>34.6</td><td>32.9</td><td>31.2</td><td>28.8</td><td>26.9</td><td>13.00733282</td><td>42.74972232</td></tr>
+    <tr><td>Africa</td><td>Ethiopia</td><td>Mek'ele</td><td>22.7</td><td>19.5</td><td>20.5</td><td>21.5</td><td>22.5</td><td>23.5</td><td>23.5</td><td>20.5</td><td>20</td><td>21.5</td><td>20.5</td><td>19.5</td><td>18.5</td><td>13.49583756</td><td>39.46709577</td></tr>
+    <tr><td>Africa</td><td>Ethiopia</td><td>Addis Ababa</td><td>16</td><td>16</td><td>17</td><td>17</td><td>17</td><td>18</td><td>17</td><td>15</td><td>16</td><td>16</td><td>16</td><td>15</td><td>15</td><td>8.984534849</td><td>38.75445324</td></tr>
+    <tr><td>Africa</td><td>Gabon</td><td>Libreville</td><td>25.9</td><td>26.8</td><td>27</td><td>27.1</td><td>26.6</td><td>26.7</td><td>25.4</td><td>24.3</td><td>24.3</td><td>25.4</td><td>25.7</td><td>25.9</td><td>26.2</td><td>0.419106214</td><td>9.453166735</td></tr>
+    <tr><td>Africa</td><td>Gabon</td><td>Port-Gentil</td><td>26</td><td>26.9</td><td>27.3</td><td>27.3</td><td>27.1</td><td>26.6</td><td>24.4</td><td>23.5</td><td>24.7</td><td>25.4</td><td>25.9</td><td>26.1</td><td>26.5</td><td>-0.735290742</td><td>8.76275485</td></tr>
+    <tr><td>Africa</td><td>The Gambia</td><td>Banjul</td><td>26</td><td>23</td><td>25</td><td>25</td><td>25</td><td>26</td><td>27</td><td>27</td><td>27</td><td>27</td><td>27</td><td>26</td><td>24</td><td>13.45774267</td><td>-16.58651259</td></tr>
+    <tr><td>Africa</td><td>Ghana</td><td>Accra</td><td>26.4</td><td>27.3</td><td>27.7</td><td>27.7</td><td>27.7</td><td>27.2</td><td>25.6</td><td>24.4</td><td>24.3</td><td>25.2</td><td>26</td><td>27</td><td>27.2</td><td>5.602138511</td><td>-0.184194946</td></tr>
+    <tr><td>Africa</td><td>Ghana</td><td>Tamale</td><td>27.9</td><td>27.9</td><td>30.1</td><td>30.9</td><td>29.8</td><td>28.6</td><td>26.8</td><td>26</td><td>25.8</td><td>25.9</td><td>27.3</td><td>28.2</td><td>27.5</td><td>9.407017911</td><td>-0.839429211</td></tr>
+    <tr><td>Africa</td><td>Ghana</td><td>Kumasi</td><td>26</td><td>26</td><td>27</td><td>27</td><td>27</td><td>26</td><td>26</td><td>24</td><td>24</td><td>24</td><td>25</td><td>26</td><td>25</td><td>6.665188013</td><td>-1.614735059</td></tr>
+    <tr><td>Africa</td><td>Guinea</td><td>Conakry</td><td>26.4</td><td>26.1</td><td>26.5</td><td>27</td><td>27.4</td><td>27.5</td><td>26.5</td><td>25.5</td><td>25.2</td><td>25.6</td><td>26.3</td><td>27</td><td>26.6</td><td>9.640289613</td><td>-13.58208691</td></tr>
+    <tr><td>Africa</td><td>Guinea</td><td>Kankan</td><td>26.5</td><td>24.3</td><td>26.3</td><td>29.6</td><td>30.1</td><td>28.3</td><td>26.4</td><td>25.3</td><td>25.1</td><td>25.5</td><td>26.4</td><td>27</td><td>23.8</td><td>9.625339932</td><td>-13.56286123</td></tr>
+    <tr><td>Africa</td><td>Guinea-Bissau</td><td>Bissau</td><td>27</td><td>26</td><td>27</td><td>28</td><td>28</td><td>28</td><td>28</td><td>27</td><td>26</td><td>27</td><td>28</td><td>27</td><td>26</td><td>11.86080908</td><td>-15.60236756</td></tr>
+    <tr><td>Africa</td><td>Ivory Coast</td><td>Gagnoa</td><td>26</td><td>26</td><td>27</td><td>27</td><td>27</td><td>27</td><td>26</td><td>25</td><td>25</td><td>25</td><td>26</td><td>26</td><td>26</td><td>6.150406937</td><td>-5.95283086</td></tr>
+    <tr><td>Africa</td><td>Ivory Coast</td><td>Bouaké</td><td>26</td><td>27</td><td>28</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>24</td><td>24</td><td>25</td><td>26</td><td>26</td><td>7.690843524</td><td>-5.03901326</td></tr>
+    <tr><td>Africa</td><td>Ivory Coast</td><td>Abidjan</td><td>26</td><td>27</td><td>28</td><td>28</td><td>28</td><td>27</td><td>26</td><td>25</td><td>24</td><td>25</td><td>26</td><td>27</td><td>27</td><td>5.358230585</td><td>-4.010676891</td></tr>
+    <tr><td>Africa</td><td>Ivory Coast</td><td>Odienné</td><td>26</td><td>25</td><td>27</td><td>28</td><td>28</td><td>27</td><td>26</td><td>25</td><td>25</td><td>25</td><td>25</td><td>25</td><td>23</td><td>9.519028633</td><td>-7.55595702</td></tr>
+    <tr><td>Africa</td><td>Kenya</td><td>Mombasa</td><td>26.3</td><td>27.6</td><td>28.1</td><td>28.3</td><td>27.6</td><td>26.2</td><td>24.8</td><td>24</td><td>24</td><td>24.7</td><td>25.7</td><td>26.9</td><td>27.4</td><td>-4.045459824</td><td>39.66694752</td></tr>
+    <tr><td>Africa</td><td>Kenya</td><td>Nairobi</td><td>17.8</td><td>18</td><td>18.8</td><td>19.4</td><td>19.2</td><td>17.8</td><td>16.3</td><td>15.6</td><td>15.9</td><td>17.3</td><td>18.5</td><td>18.4</td><td>18.1</td><td>-1.309383237</td><td>36.81854853</td></tr>
+    <tr><td>Africa</td><td>Kenya</td><td>Garissa</td><td>29.3</td><td>29.7</td><td>30.6</td><td>31.4</td><td>30.7</td><td>29.6</td><td>27.9</td><td>27.4</td><td>27.6</td><td>28.4</td><td>29.7</td><td>29.9</td><td>29.2</td><td>-0.453095471</td><td>39.65116018</td></tr>
+    <tr><td>Africa</td><td>Kenya</td><td>Lodwar</td><td>29.3</td><td>28.7</td><td>29.6</td><td>30.1</td><td>29.6</td><td>29.7</td><td>29.1</td><td>28.4</td><td>28.7</td><td>29.6</td><td>30.1</td><td>29.1</td><td>28.5</td><td>3.122855182</td><td>35.61264602</td></tr>
+    <tr><td>Africa</td><td>Libya</td><td>Tripoli</td><td>20</td><td>12</td><td>13</td><td>15</td><td>18</td><td>22</td><td>26</td><td>27</td><td>28</td><td>27</td><td>23</td><td>17</td><td>13</td><td>32.88689994</td><td>13.19322807</td></tr>
+    <tr><td>Africa</td><td>Libya</td><td>Benghazi</td><td>19.9</td><td>12.5</td><td>13.2</td><td>14.9</td><td>18.7</td><td>22.5</td><td>25.5</td><td>25.9</td><td>26.5</td><td>25.1</td><td>22.1</td><td>18.2</td><td>14.1</td><td>32.08875744</td><td>20.11370637</td></tr>
+    <tr><td>Africa</td><td>Madagascar</td><td>Fianarantsoa</td><td>17.9</td><td>20.8</td><td>20.8</td><td>20</td><td>18.9</td><td>16.7</td><td>14.5</td><td>14</td><td>14.4</td><td>16.2</td><td>18.3</td><td>19.7</td><td>20.4</td><td>-21.45439307</td><td>47.08834596</td></tr>
+    <tr><td>Africa</td><td>Madagascar</td><td>Toamasina</td><td>23.4</td><td>26</td><td>26.1</td><td>25.5</td><td>24.6</td><td>22.9</td><td>21.1</td><td>20.4</td><td>20.5</td><td>21.3</td><td>22.7</td><td>24.3</td><td>25.5</td><td>-18.14508465</td><td>49.39969162</td></tr>
+    <tr><td>Africa</td><td>Madagascar</td><td>Antananarivo</td><td>17.9</td><td>20.5</td><td>20.7</td><td>20.1</td><td>19.2</td><td>16.8</td><td>14.6</td><td>14.1</td><td>14.5</td><td>16.3</td><td>18.5</td><td>19.7</td><td>20.2</td><td>-18.87921942</td><td>47.51560176</td></tr>
+    <tr><td>Africa</td><td>Madagascar</td><td>Antsiranana</td><td>25.2</td><td>26</td><td>26</td><td>26.2</td><td>26.3</td><td>25.4</td><td>24.1</td><td>23.5</td><td>23.4</td><td>24.1</td><td>25.2</td><td>26.3</td><td>26.5</td><td>-12.32146382</td><td>49.30260599</td></tr>
+    <tr><td>Africa</td><td>Madagascar</td><td>Mahajanga</td><td>26.3</td><td>27.1</td><td>27.2</td><td>27.5</td><td>27.4</td><td>26.1</td><td>24.6</td><td>24.2</td><td>24.6</td><td>25.4</td><td>26.8</td><td>27.7</td><td>27.4</td><td>-15.69204789</td><td>46.3382688</td></tr>
+    <tr><td>Africa</td><td>Madagascar</td><td>Toliara</td><td>24.1</td><td>27.5</td><td>27.5</td><td>26.8</td><td>25</td><td>22.7</td><td>20.7</td><td>20.3</td><td>21</td><td>22.3</td><td>23.9</td><td>25.3</td><td>26.6</td><td>-23.35280505</td><td>43.68887138</td></tr>
+    <tr><td>Africa</td><td>Malawi</td><td>Karonga</td><td>24.4</td><td>24.9</td><td>25</td><td>24.7</td><td>24.6</td><td>23.6</td><td>22.2</td><td>21.7</td><td>22.4</td><td>24.3</td><td>26.4</td><td>27</td><td>25.7</td><td>-9.953167928</td><td>33.91691904</td></tr>
+    <tr><td>Africa</td><td>Malawi</td><td>Blantyre</td><td>22.2</td><td>23.5</td><td>23.4</td><td>23.2</td><td>22.2</td><td>20.3</td><td>18.5</td><td>18.4</td><td>20</td><td>23.1</td><td>25</td><td>25</td><td>24</td><td>-15.76793737</td><td>35.01977708</td></tr>
+    <tr><td>Africa</td><td>Malawi</td><td>Mzuzu</td><td>17.7</td><td>19.9</td><td>20</td><td>19.5</td><td>18.7</td><td>16.4</td><td>13.9</td><td>13.1</td><td>14</td><td>16.7</td><td>19.4</td><td>20.5</td><td>20.1</td><td>-11.44006155</td><td>34.02152474</td></tr>
+    <tr><td>Africa</td><td>Mali</td><td>Ségou</td><td>28</td><td>24</td><td>27</td><td>30</td><td>33</td><td>33</td><td>30</td><td>28</td><td>27</td><td>27</td><td>29</td><td>27</td><td>25</td><td>13.43067177</td><td>-6.248004599</td></tr>
+    <tr><td>Africa</td><td>Mali</td><td>Timbuktu</td><td>28</td><td>21</td><td>23</td><td>27</td><td>31</td><td>33</td><td>34</td><td>32</td><td>31</td><td>31</td><td>30</td><td>26</td><td>21</td><td>16.76653414</td><td>-3.002743869</td></tr>
+    <tr><td>Africa</td><td>Mali</td><td>Bamako</td><td>27.8</td><td>25.1</td><td>27.8</td><td>30.2</td><td>31.6</td><td>31.4</td><td>29.1</td><td>26.8</td><td>26.1</td><td>26.6</td><td>27.7</td><td>26.5</td><td>24.8</td><td>12.63871366</td><td>-8.006501658</td></tr>
+    <tr><td>Africa</td><td>Mauritania</td><td>Nouadhibou</td><td>21.3</td><td>18.3</td><td>19.2</td><td>20.1</td><td>19.9</td><td>20.4</td><td>22.8</td><td>22.4</td><td>23.5</td><td>24.6</td><td>23.3</td><td>21.2</td><td>19.2</td><td>20.94262414</td><td>-17.03570093</td></tr>
+    <tr><td>Africa</td><td>Mauritania</td><td>Nouakchott</td><td>25.7</td><td>21.5</td><td>23</td><td>24.2</td><td>24.3</td><td>25.8</td><td>26.7</td><td>27.3</td><td>28.4</td><td>29.6</td><td>28.8</td><td>25.8</td><td>22.8</td><td>18.078255</td><td>-15.9515032</td></tr>
+    <tr><td>Africa</td><td>Morocco</td><td>Rabat</td><td>17.2</td><td>12.6</td><td>13.1</td><td>14.2</td><td>15.2</td><td>17.4</td><td>19.8</td><td>22.2</td><td>22.4</td><td>21.5</td><td>19</td><td>15.9</td><td>13.2</td><td>33.97574757</td><td>-6.853144932</td></tr>
+    <tr><td>Africa</td><td>Morocco</td><td>Marrakesh</td><td>19.6</td><td>12.2</td><td>13.8</td><td>15.8</td><td>17.3</td><td>20.6</td><td>23.8</td><td>28.3</td><td>28.3</td><td>25.3</td><td>21.1</td><td>16.3</td><td>12.6</td><td>31.63752538</td><td>-8.002018663</td></tr>
+    <tr><td>Africa</td><td>Morocco</td><td>Ouarzazate</td><td>18.9</td><td>9.3</td><td>11.9</td><td>14.8</td><td>17.6</td><td>21.7</td><td>25.9</td><td>29.5</td><td>28.8</td><td>24.6</td><td>19.4</td><td>13.7</td><td>9.5</td><td>30.92756629</td><td>-6.931388236</td></tr>
+    <tr><td>Africa</td><td>Mozambique</td><td>Maputo</td><td>22.8</td><td>26.3</td><td>26.2</td><td>25.6</td><td>23.5</td><td>21.4</td><td>18.9</td><td>18.8</td><td>20</td><td>21.5</td><td>22.4</td><td>23.8</td><td>25.5</td><td>-25.93484152</td><td>32.57943922</td></tr>
+    <tr><td>Africa</td><td>Niger</td><td>Niamey</td><td>29.3</td><td>24.3</td><td>27.3</td><td>30.9</td><td>33.8</td><td>34</td><td>31.5</td><td>29</td><td>27.9</td><td>29</td><td>30.8</td><td>27.9</td><td>25</td><td>13.5244113</td><td>2.110468421</td></tr>
+    <tr><td>Africa</td><td>Nigeria</td><td>Lagos</td><td>26.8</td><td>27.3</td><td>28.5</td><td>28.5</td><td>28</td><td>27.1</td><td>25.6</td><td>25.3</td><td>25.1</td><td>25.5</td><td>26.4</td><td>27.2</td><td>27.2</td><td>6.52688812</td><td>3.378707365</td></tr>
+    <tr><td>Africa</td><td>Nigeria</td><td>Makurdi</td><td>26</td><td>26.9</td><td>27.3</td><td>27.3</td><td>27.1</td><td>26.6</td><td>24.4</td><td>23.5</td><td>24.7</td><td>25.4</td><td>25.9</td><td>26.1</td><td>26.5</td><td>7.732768671</td><td>8.541543817</td></tr>
+    <tr><td>Africa</td><td>Nigeria</td><td>Jos</td><td>27.4</td><td>27.3</td><td>28.7</td><td>30.4</td><td>30.2</td><td>28.2</td><td>26.6</td><td>24.4</td><td>24.3</td><td>26.1</td><td>27.8</td><td>28</td><td>27.2</td><td>9.891672767</td><td>8.865438785</td></tr>
+    <tr><td>Africa</td><td>Nigeria</td><td>Kano</td><td>26.4</td><td>21.2</td><td>24.4</td><td>28.7</td><td>31.3</td><td>30.9</td><td>28.2</td><td>26.2</td><td>25.5</td><td>26.6</td><td>27.3</td><td>24.6</td><td>21.6</td><td>12.00224426</td><td>8.591021887</td></tr>
+    <tr><td>Africa</td><td>Nigeria</td><td>Sokoto</td><td>28</td><td>25</td><td>26</td><td>30</td><td>32</td><td>32</td><td>31</td><td>28</td><td>27</td><td>28</td><td>28</td><td>27</td><td>25</td><td>13.00448631</td><td>5.247601889</td></tr>
+    <tr><td>Africa</td><td>Republic of the Congo</td><td>Brazzaville</td><td>25</td><td>26</td><td>26</td><td>27</td><td>26</td><td>26</td><td>23</td><td>22</td><td>23</td><td>25</td><td>26</td><td>26</td><td>26</td><td>-4.263599604</td><td>15.24171597</td></tr>
+    <tr><td>Africa</td><td>Republic of the Congo</td><td>Pointe-Noire</td><td>26.1</td><td>27.5</td><td>27.6</td><td>27.9</td><td>27.8</td><td>26.8</td><td>24.5</td><td>23.1</td><td>23.3</td><td>24.5</td><td>26.3</td><td>26.7</td><td>26.9</td><td>-4.768127203</td><td>11.86828076</td></tr>
+    <tr><td>Africa</td><td>Republic of the Congo</td><td>Dolisie</td><td>24</td><td>25</td><td>26</td><td>26</td><td>26</td><td>25</td><td>23</td><td>21</td><td>22</td><td>23</td><td>25</td><td>25</td><td>25</td><td>-4.195616398</td><td>12.67469219</td></tr>
+    <tr><td>Africa</td><td>Senegal</td><td>Dakar</td><td>24</td><td>21</td><td>21</td><td>21</td><td>21</td><td>22</td><td>25</td><td>27</td><td>27</td><td>27</td><td>27</td><td>26</td><td>23</td><td>14.717165</td><td>-17.46634055</td></tr>
+    <tr><td>Africa</td><td>Senegal</td><td>Thiès</td><td>24</td><td>21</td><td>21</td><td>21</td><td>22</td><td>24</td><td>26</td><td>27</td><td>27</td><td>27</td><td>27</td><td>26</td><td>23</td><td>14.79171566</td><td>-16.93585268</td></tr>
+    <tr><td>Africa</td><td>Somalia</td><td>Bosaso</td><td>30</td><td>25</td><td>25</td><td>26.7</td><td>28.8</td><td>31.1</td><td>35.6</td><td>35.6</td><td>36.1</td><td>33.3</td><td>27.8</td><td>25.6</td><td>25.6</td><td>11.27584842</td><td>49.18770059</td></tr>
+    <tr><td>Africa</td><td>Somalia</td><td>Hargeisa</td><td>21.7</td><td>17.7</td><td>18.7</td><td>21.6</td><td>23</td><td>24.1</td><td>24.3</td><td>23.6</td><td>23.6</td><td>23.6</td><td>24.1</td><td>18.7</td><td>18</td><td>9.562440513</td><td>44.07516829</td></tr>
+    <tr><td>Africa</td><td>Somalia</td><td>Mogadishu</td><td>27.1</td><td>26.6</td><td>26.9</td><td>28</td><td>28.9</td><td>28.2</td><td>26.7</td><td>25.4</td><td>25.9</td><td>26.5</td><td>27.3</td><td>27.5</td><td>26.9</td><td>2.183288636</td><td>45.4152618</td></tr>
+    <tr><td>Africa</td><td>South Africa</td><td>Pretoria</td><td>18.2</td><td>22.6</td><td>22.1</td><td>21</td><td>17.9</td><td>14.7</td><td>11.5</td><td>11.9</td><td>14.7</td><td>18.6</td><td>20.1</td><td>21</td><td>21.9</td><td>-25.7106267</td><td>28.21118484</td></tr>
+    <tr><td>Africa</td><td>South Africa</td><td>Cape Town</td><td>16.2</td><td>20.4</td><td>20.4</td><td>19.2</td><td>16.9</td><td>14.4</td><td>12.5</td><td>11.9</td><td>12.4</td><td>13.7</td><td>15.6</td><td>17.9</td><td>19.5</td><td>-33.88627186</td><td>18.47076323</td></tr>
+    <tr><td>Africa</td><td>South Africa</td><td>Johannesburg</td><td>15.5</td><td>19.5</td><td>19</td><td>18</td><td>15.3</td><td>12.6</td><td>9.6</td><td>10</td><td>12.5</td><td>15.9</td><td>17.1</td><td>17.9</td><td>19</td><td>-26.20416118</td><td>28.04688905</td></tr>
+    <tr><td>Africa</td><td>South Africa</td><td>Bloemfontein</td><td>15.6</td><td>22.8</td><td>21.4</td><td>19.2</td><td>14.9</td><td>10.7</td><td>6.9</td><td>7.2</td><td>10.1</td><td>14.6</td><td>17.5</td><td>19.9</td><td>21.9</td><td>-29.08513708</td><td>26.15249089</td></tr>
+    <tr><td>Africa</td><td>South Africa</td><td>Upington</td><td>20.4</td><td>27.8</td><td>26.9</td><td>24.7</td><td>20.2</td><td>15.7</td><td>12.1</td><td>11.9</td><td>14</td><td>18.1</td><td>21.4</td><td>24.7</td><td>26.9</td><td>-28.39199434</td><td>21.25227531</td></tr>
+    <tr><td>Africa</td><td>South Africa</td><td>Durban</td><td>20.6</td><td>24.1</td><td>24.3</td><td>23.7</td><td>21.6</td><td>19.1</td><td>16.6</td><td>16.5</td><td>17.7</td><td>19.2</td><td>20.1</td><td>21.4</td><td>23.1</td><td>-29.85892748</td><td>31.01669928</td></tr>
+    <tr><td>Africa</td><td>South Sudan</td><td>Juba</td><td>27.8</td><td>28.3</td><td>29.5</td><td>29.9</td><td>29.2</td><td>27.9</td><td>26.9</td><td>25.9</td><td>26.1</td><td>26.8</td><td>27.5</td><td>27.6</td><td>27.7</td><td>4.858980055</td><td>31.56894888</td></tr>
+    <tr><td>Africa</td><td>South Sudan</td><td>Wau</td><td>27.8</td><td>26.8</td><td>28.5</td><td>30.4</td><td>30.6</td><td>29.3</td><td>27.5</td><td>26.3</td><td>26.2</td><td>26.8</td><td>27.4</td><td>27.4</td><td>26.5</td><td>39.39496663</td><td>-77.41641354</td></tr>
+    <tr><td>Africa</td><td>Sudan</td><td>Port Sudan</td><td>28.4</td><td>23.3</td><td>23</td><td>24.3</td><td>26.5</td><td>29.3</td><td>32.2</td><td>34.1</td><td>34.5</td><td>32.1</td><td>29.3</td><td>27.3</td><td>24.7</td><td>19.59226275</td><td>37.19815985</td></tr>
+    <tr><td>Africa</td><td>Sudan</td><td>Khartoum</td><td>29.9</td><td>23.2</td><td>25</td><td>28.7</td><td>31.9</td><td>34.5</td><td>34.3</td><td>32.1</td><td>31.5</td><td>32.5</td><td>32.4</td><td>28.1</td><td>24.5</td><td>15.52930538</td><td>32.55601239</td></tr>
+    <tr><td>Africa</td><td>Tanzania</td><td>Dar es Salaam</td><td>25.8</td><td>27.4</td><td>27.7</td><td>27.4</td><td>26.5</td><td>25.5</td><td>24.2</td><td>23.5</td><td>23.7</td><td>24.3</td><td>25.3</td><td>26.3</td><td>27.3</td><td>-6.792071934</td><td>39.20209688</td></tr>
+    <tr><td>Africa</td><td>Tanzania</td><td>Zanzibar City</td><td>26</td><td>28</td><td>28</td><td>28</td><td>27</td><td>25</td><td>25</td><td>24</td><td>25</td><td>25</td><td>26</td><td>27</td><td>27</td><td>-6.813982014</td><td>39.28205875</td></tr>
+    <tr><td>Africa</td><td>Tanzania</td><td>Tabora</td><td>23</td><td>22</td><td>22</td><td>22</td><td>22</td><td>22</td><td>21</td><td>21</td><td>22</td><td>24</td><td>25</td><td>24</td><td>22</td><td>-5.042335851</td><td>32.82162791</td></tr>
+    <tr><td>Africa</td><td>Tanzania</td><td>Dodoma</td><td>22.7</td><td>23.8</td><td>23</td><td>23.5</td><td>22.8</td><td>22.1</td><td>21.4</td><td>19.8</td><td>20.5</td><td>22.3</td><td>23.8</td><td>25.1</td><td>24.6</td><td>-6.179138343</td><td>35.75029509</td></tr>
+    <tr><td>Africa</td><td>Togo</td><td>Lomé</td><td>26.9</td><td>27.1</td><td>28.2</td><td>28.5</td><td>28.2</td><td>27.4</td><td>26.2</td><td>25.3</td><td>25.2</td><td>25.8</td><td>26.6</td><td>27.3</td><td>27.1</td><td>6.160130463</td><td>1.243941868</td></tr>
+    <tr><td>Africa</td><td>Togo</td><td>Mango</td><td>28.1</td><td>26.8</td><td>29.4</td><td>31.5</td><td>31.4</td><td>29.6</td><td>27.5</td><td>26.4</td><td>26</td><td>26.4</td><td>27.9</td><td>27.9</td><td>26.7</td><td>10.35464626</td><td>0.47277675</td></tr>
+    <tr><td>Africa</td><td>Tunisia</td><td>Tunis</td><td>18.4</td><td>11.5</td><td>12</td><td>13.2</td><td>15.6</td><td>19.3</td><td>23.2</td><td>26.3</td><td>26.8</td><td>24.4</td><td>20.4</td><td>15.9</td><td>12.5</td><td>36.80224945</td><td>10.17774731</td></tr>
+    <tr><td>Africa</td><td>Tunisia</td><td>Gabès</td><td>19.5</td><td>12</td><td>13.3</td><td>15.1</td><td>17.7</td><td>20.8</td><td>24</td><td>26.6</td><td>27.4</td><td>25.6</td><td>21.7</td><td>16.8</td><td>13</td><td>33.88771031</td><td>10.09939656</td></tr>
+    <tr><td>Africa</td><td>Uganda</td><td>Kampala</td><td>20</td><td>22</td><td>22</td><td>22</td><td>21</td><td>20</td><td>20</td><td>20</td><td>20</td><td>20</td><td>21</td><td>21</td><td>21</td><td>0.349244822</td><td>32.58420752</td></tr>
+    <tr><td>Africa</td><td>Uganda</td><td>Entebbe</td><td>21</td><td>21</td><td>22</td><td>22</td><td>21</td><td>21</td><td>21</td><td>20</td><td>20</td><td>21</td><td>21</td><td>21</td><td>21</td><td>0.050727593</td><td>32.46266246</td></tr>
+    <tr><td>Africa</td><td>Zambia</td><td>Ndola</td><td>20.3</td><td>20.8</td><td>20.8</td><td>21</td><td>20.5</td><td>18.6</td><td>16.5</td><td>16.7</td><td>19.2</td><td>22.5</td><td>23.7</td><td>22.5</td><td>21</td><td>-12.99067863</td><td>28.65033912</td></tr>
+    <tr><td>Africa</td><td>Zambia</td><td>Lusaka</td><td>19.9</td><td>21.5</td><td>21.5</td><td>21.1</td><td>19.9</td><td>17.4</td><td>15.2</td><td>14.9</td><td>17.3</td><td>21.3</td><td>23.5</td><td>23.4</td><td>21.7</td><td>-15.38765862</td><td>28.33413136</td></tr>
+    <tr><td>Africa</td><td>Zambia</td><td>Livingstone</td><td>21.8</td><td>23.6</td><td>23.2</td><td>23.1</td><td>21.9</td><td>18.9</td><td>16</td><td>16.1</td><td>19.3</td><td>23.9</td><td>26.2</td><td>25.1</td><td>23.6</td><td>-15.40222139</td><td>28.34588725</td></tr>
+    <tr><td>Africa</td><td>Zimbabwe</td><td>Harare</td><td>18.4</td><td>21</td><td>20.7</td><td>20.3</td><td>18.8</td><td>16.1</td><td>13.7</td><td>13.4</td><td>15.5</td><td>18.6</td><td>20.8</td><td>21.2</td><td>20.9</td><td>-17.81593398</td><td>31.08225563</td></tr>
+    <tr><td>Africa</td><td>Zimbabwe</td><td>Bulawayo</td><td>18.9</td><td>21.8</td><td>21.2</td><td>20.6</td><td>18.7</td><td>16</td><td>13.7</td><td>13.8</td><td>16.4</td><td>19.9</td><td>21.6</td><td>21.7</td><td>21.4</td><td>-20.15999725</td><td>28.58987842</td></tr>
+    <tr><td>Asia</td><td>Afghanistan</td><td>Kabul</td><td>12.1</td><td>-2.3</td><td>-0.7</td><td>6.3</td><td>12.8</td><td>17.3</td><td>22.8</td><td>25</td><td>24.1</td><td>19.7</td><td>13.1</td><td>5.9</td><td>0.6</td><td>34.56437113</td><td>69.21214259</td></tr>
+    <tr><td>Asia</td><td>Azerbaijan</td><td>Baku</td><td>15.1</td><td>4.4</td><td>4.2</td><td>7</td><td>12.9</td><td>18.5</td><td>23.5</td><td>26.4</td><td>26.3</td><td>22.5</td><td>16.6</td><td>11.2</td><td>7.3</td><td>40.35422884</td><td>49.82817299</td></tr>
+    <tr><td>Asia</td><td>Armenia</td><td>Yerevan</td><td>12.4</td><td>-3.6</td><td>0.1</td><td>6.3</td><td>12.9</td><td>17.4</td><td>22.6</td><td>26.4</td><td>26.1</td><td>21.1</td><td>13.8</td><td>6.2</td><td>-0.2</td><td>40.18845839</td><td>44.51758324</td></tr>
+    <tr><td>Asia</td><td>Bahrain</td><td>Manama</td><td>26.5</td><td>17.2</td><td>18</td><td>21.2</td><td>25.3</td><td>30</td><td>32.6</td><td>34.1</td><td>34.2</td><td>32.5</td><td>29.3</td><td>24.5</td><td>19.3</td><td>26.22375488</td><td>50.58835394</td></tr>
+    <tr><td>Asia</td><td>Bangladesh</td><td>Dhaka</td><td>25.9</td><td>18.6</td><td>22</td><td>26.3</td><td>28.4</td><td>28.8</td><td>29</td><td>28.7</td><td>28.9</td><td>28.5</td><td>27.4</td><td>24</td><td>20</td><td>23.81705965</td><td>90.41039718</td></tr>
+    <tr><td>Asia</td><td>Cambodia</td><td>Phnom Penh</td><td>28.3</td><td>26.6</td><td>28</td><td>29.4</td><td>30.2</td><td>30</td><td>29.2</td><td>28.7</td><td>28.5</td><td>28.2</td><td>27.2</td><td>27.1</td><td>26.3</td><td>11.65108952</td><td>104.902981</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Beijing</td><td>12.9</td><td>-3.1</td><td>0.3</td><td>6.7</td><td>14.8</td><td>20.8</td><td>24.9</td><td>26.7</td><td>25.5</td><td>20.8</td><td>13.7</td><td>5</td><td>-0.9</td><td>39.88642208</td><td>116.4194218</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Changsha</td><td>17.4</td><td>4.9</td><td>7.2</td><td>11.2</td><td>17.4</td><td>22.4</td><td>25.8</td><td>29.2</td><td>28.3</td><td>23.9</td><td>18.4</td><td>12.8</td><td>7.3</td><td>28.23753068</td><td>112.9202312</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Chongqing</td><td>18.6</td><td>8</td><td>10.1</td><td>14</td><td>18.8</td><td>22.8</td><td>25.3</td><td>28.5</td><td>28.6</td><td>24.3</td><td>18.7</td><td>14.3</td><td>9.3</td><td>29.58529689</td><td>106.5052867</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Guangzhou</td><td>22.4</td><td>13.9</td><td>15.2</td><td>18.1</td><td>22.4</td><td>25.8</td><td>27.8</td><td>28.9</td><td>28.8</td><td>27.5</td><td>24.7</td><td>20.1</td><td>15.5</td><td>23.13166495</td><td>113.2374219</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Harbin</td><td>5</td><td>-17.6</td><td>-12.1</td><td>-2.7</td><td>7.7</td><td>15.4</td><td>21.4</td><td>23.3</td><td>21.8</td><td>15.4</td><td>6.8</td><td>-4.6</td><td>-14.4</td><td>45.80407381</td><td>126.5359714</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Kunming</td><td>15.7</td><td>9.1</td><td>11.4</td><td>14.5</td><td>17.7</td><td>19.4</td><td>20.5</td><td>20.3</td><td>20</td><td>18.5</td><td>16</td><td>12.3</td><td>9.2</td><td>24.8824918</td><td>102.830306</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Lhasa</td><td>7.6</td><td>-2.1</td><td>1.1</td><td>4.6</td><td>8.1</td><td>11.9</td><td>15.5</td><td>15.3</td><td>14.5</td><td>12.8</td><td>8.1</td><td>2.2</td><td>-1.7</td><td>29.65714706</td><td>91.17844958</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Shanghai</td><td>16.7</td><td>4.6</td><td>6.1</td><td>9.6</td><td>15.1</td><td>20.3</td><td>24.1</td><td>28.4</td><td>28.1</td><td>24.4</td><td>19.3</td><td>13.4</td><td>7.1</td><td>31.43471006</td><td>121.4339828</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Ürümqi</td><td>7.4</td><td>-12.1</td><td>-9.3</td><td>-0.5</td><td>10.4</td><td>17</td><td>21.8</td><td>23.9</td><td>22.7</td><td>17</td><td>8.4</td><td>-1.5</td><td>-9.4</td><td>43.84736056</td><td>87.62681497</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Xi'an</td><td>14.1</td><td>0.3</td><td>3.6</td><td>8.7</td><td>15.4</td><td>20.5</td><td>25.3</td><td>27</td><td>25.1</td><td>20.3</td><td>14.1</td><td>7</td><td>1.5</td><td>34.35661725</td><td>108.9438309</td></tr>
+    <tr><td>Asia</td><td>China</td><td>Yinchuan</td><td>9</td><td>-7.9</td><td>-3.8</td><td>3.2</td><td>11.2</td><td>17.3</td><td>21.5</td><td>23.5</td><td>21.6</td><td>16.3</td><td>9.2</td><td>1.4</td><td>-5.5</td><td>38.53327523</td><td>106.2472792</td></tr>
+    <tr><td>Asia</td><td>East Timor</td><td>Dili</td><td>26.6</td><td>27.7</td><td>27.6</td><td>27.4</td><td>27.4</td><td>27</td><td>26.8</td><td>25.5</td><td>25.1</td><td>25.4</td><td>26</td><td>27.2</td><td>27.4</td><td>-8.555226517</td><td>125.5604848</td></tr>
+    <tr><td>Asia</td><td>Georgia</td><td>Batumi</td><td>14</td><td>6</td><td>7</td><td>8</td><td>12</td><td>16</td><td>20</td><td>22</td><td>22</td><td>20</td><td>16</td><td>12</td><td>8</td><td>41.61879004</td><td>41.63940485</td></tr>
+    <tr><td>Asia</td><td>Georgia</td><td>Tbilisi</td><td>12.9</td><td>1.2</td><td>2.7</td><td>6.6</td><td>12.2</td><td>17.4</td><td>21.3</td><td>24.5</td><td>24.1</td><td>19.6</td><td>13.7</td><td>7.8</td><td>3.2</td><td>41.71597474</td><td>44.81893283</td></tr>
+    <tr><td>Asia</td><td>Hong Kong</td><td>Hong Kong</td><td>23.3</td><td>16.3</td><td>16.8</td><td>19.1</td><td>22.6</td><td>25.9</td><td>27.9</td><td>28.8</td><td>28.6</td><td>27.7</td><td>25.5</td><td>21.8</td><td>17.9</td><td>22.32834849</td><td>114.1839694</td></tr>
+    <tr><td>Asia</td><td>India</td><td>New Delhi</td><td>25</td><td>13.8</td><td>16.5</td><td>22.1</td><td>28.7</td><td>32.8</td><td>34</td><td>30.9</td><td>29.7</td><td>29</td><td>26.1</td><td>20.5</td><td>15.3</td><td>28.60435877</td><td>77.22871478</td></tr>
+    <tr><td>Asia</td><td>India</td><td>Kolkata</td><td>26.7</td><td>20.1</td><td>22.8</td><td>27.6</td><td>30.5</td><td>31.3</td><td>30.4</td><td>29.1</td><td>28.8</td><td>28.8</td><td>27.5</td><td>23.7</td><td>20.3</td><td>22.65493974</td><td>88.4452949</td></tr>
+    <tr><td>Asia</td><td>India</td><td>Mumbai</td><td>27.1</td><td>23.7</td><td>24.5</td><td>26.8</td><td>28.4</td><td>29.9</td><td>29.2</td><td>27.6</td><td>27.2</td><td>27.3</td><td>28.3</td><td>27.2</td><td>25.2</td><td>19.0847935</td><td>72.87774396</td></tr>
+    <tr><td>Asia</td><td>Indonesia</td><td>Jakarta</td><td>26.7</td><td>26.1</td><td>26.1</td><td>26.4</td><td>27</td><td>27.2</td><td>26.7</td><td>26.4</td><td>26.7</td><td>27</td><td>27.2</td><td>27</td><td>26.4</td><td>-6.209932501</td><td>106.848735</td></tr>
+    <tr><td>Asia</td><td>Indonesia</td><td>Denpasar</td><td>23.7</td><td>24.1</td><td>24.2</td><td>24</td><td>24.8</td><td>24.1</td><td>23.5</td><td>22.5</td><td>22.9</td><td>23</td><td>23.7</td><td>23.5</td><td>23.5</td><td>-8.671998118</td><td>115.2088215</td></tr>
+    <tr><td>Asia</td><td>Indonesia</td><td>Jayapura</td><td>27</td><td>27.1</td><td>26.9</td><td>27.1</td><td>27.3</td><td>27.2</td><td>26.9</td><td>26.4</td><td>26.6</td><td>26.9</td><td>27.2</td><td>27.3</td><td>27</td><td>-2.59068923</td><td>140.6642043</td></tr>
+    <tr><td>Asia</td><td>Indonesia</td><td>Makassar</td><td>26.7</td><td>26</td><td>26.3</td><td>27.4</td><td>27.6</td><td>26.9</td><td>26</td><td>25.6</td><td>26</td><td>26.7</td><td>27.5</td><td>27.7</td><td>26.1</td><td>-5.150467653</td><td>119.4359276</td></tr>
+    <tr><td>Asia</td><td>Indonesia</td><td>Medan</td><td>26.5</td><td>25.6</td><td>26.1</td><td>26.7</td><td>27.2</td><td>27.3</td><td>27.1</td><td>27</td><td>26.9</td><td>26.6</td><td>26.1</td><td>26</td><td>25.8</td><td>3.597017166</td><td>98.67243578</td></tr>
+    <tr><td>Asia</td><td>Indonesia</td><td>Palembang</td><td>27.3</td><td>26.8</td><td>27.1</td><td>27.2</td><td>27.7</td><td>28</td><td>27.4</td><td>27</td><td>27.2</td><td>27.5</td><td>27.7</td><td>27.4</td><td>27</td><td>-2.975195265</td><td>104.771202</td></tr>
+    <tr><td>Asia</td><td>Indonesia</td><td>Pontianak</td><td>27.7</td><td>26.9</td><td>27.9</td><td>28.2</td><td>28.1</td><td>28</td><td>27.8</td><td>27.5</td><td>27.8</td><td>28.3</td><td>27.7</td><td>27.3</td><td>27.2</td><td>-0.022946596</td><td>109.3456376</td></tr>
+    <tr><td>Asia</td><td>Indonesia</td><td>Surabaya</td><td>27.1</td><td>26.8</td><td>26.8</td><td>27</td><td>27.3</td><td>27.3</td><td>26.7</td><td>26.2</td><td>26.5</td><td>27.2</td><td>28.2</td><td>28.3</td><td>27.3</td><td>-7.291620029</td><td>112.7562835</td></tr>
+    <tr><td>Asia</td><td>Iraq</td><td>Baghdad</td><td>22.77</td><td>9.7</td><td>12</td><td>16.6</td><td>22.6</td><td>28.3</td><td>32.3</td><td>34.8</td><td>34</td><td>30.5</td><td>24.7</td><td>16.5</td><td>11.2</td><td>33.31849312</td><td>44.36894319</td></tr>
+    <tr><td>Asia</td><td>Iraq</td><td>Erbil</td><td>19.5</td><td>6.2</td><td>8.1</td><td>12.2</td><td>17.4</td><td>23.6</td><td>28.9</td><td>32.9</td><td>32.1</td><td>28.2</td><td>21.4</td><td>14.1</td><td>8.3</td><td>36.19297555</td><td>43.99906457</td></tr>
+    <tr><td>Asia</td><td>Iran</td><td>Tehran</td><td>17</td><td>1</td><td>5</td><td>10</td><td>17</td><td>21</td><td>27</td><td>31</td><td>29</td><td>26</td><td>18</td><td>11</td><td>5</td><td>35.69174737</td><td>51.3880364</td></tr>
+    <tr><td>Asia</td><td>Iran</td><td>Ahvaz</td><td>25.4</td><td>12.3</td><td>14.7</td><td>19</td><td>24.9</td><td>31.1</td><td>35.2</td><td>37.3</td><td>36.7</td><td>33</td><td>27.3</td><td>19.8</td><td>14</td><td>31.33812867</td><td>48.68981015</td></tr>
+    <tr><td>Asia</td><td>Iran</td><td>Tabriz</td><td>12.6</td><td>-1.7</td><td>0.5</td><td>5.6</td><td>11.5</td><td>16.7</td><td>22.1</td><td>26</td><td>25.9</td><td>21.4</td><td>14.5</td><td>7.1</td><td>1.2</td><td>38.09172495</td><td>46.37510686</td></tr>
+    <tr><td>Asia</td><td>Israel</td><td>Tel Aviv</td><td>20</td><td>12</td><td>13</td><td>15</td><td>18</td><td>21</td><td>23</td><td>26</td><td>26</td><td>25</td><td>22</td><td>18</td><td>13</td><td>32.08545422</td><td>34.78368424</td></tr>
+    <tr><td>Asia</td><td>Japan</td><td>Sapporo</td><td>8.9</td><td>-3.6</td><td>-3.1</td><td>0.6</td><td>7.1</td><td>12.4</td><td>16.7</td><td>20.5</td><td>22.3</td><td>18.1</td><td>11.8</td><td>4.9</td><td>-0.9</td><td>43.13904159</td><td>141.3799372</td></tr>
+    <tr><td>Asia</td><td>Japan</td><td>Niigata</td><td>13.9</td><td>2.8</td><td>2.9</td><td>5.8</td><td>11.5</td><td>16.5</td><td>20.7</td><td>24.5</td><td>26.6</td><td>22.5</td><td>16.4</td><td>10.5</td><td>5.6</td><td>38.03798551</td><td>139.0393919</td></tr>
+    <tr><td>Asia</td><td>Japan</td><td>Tokyo</td><td>15.4</td><td>5.2</td><td>5.7</td><td>8.7</td><td>13.9</td><td>18.2</td><td>21.4</td><td>25</td><td>26.4</td><td>22.8</td><td>17.5</td><td>12.1</td><td>7.6</td><td>35.82092783</td><td>139.7912806</td></tr>
+    <tr><td>Asia</td><td>Japan</td><td>Kyoto</td><td>15.8</td><td>4.6</td><td>5.1</td><td>8.4</td><td>14.2</td><td>19</td><td>23</td><td>26.8</td><td>28.2</td><td>24.1</td><td>17.8</td><td>12.1</td><td>7</td><td>35.07169505</td><td>135.7705175</td></tr>
+    <tr><td>Asia</td><td>Japan</td><td>Hiroshima</td><td>16.3</td><td>5.2</td><td>6</td><td>9.1</td><td>14.7</td><td>19.3</td><td>23</td><td>27.1</td><td>28.2</td><td>24.4</td><td>18.3</td><td>12.5</td><td>7.5</td><td>34.3997873</td><td>132.4448482</td></tr>
+    <tr><td>Asia</td><td>Japan</td><td>Fukuoka</td><td>17</td><td>6.6</td><td>7.4</td><td>10.4</td><td>15.1</td><td>19.4</td><td>23</td><td>27.2</td><td>28.1</td><td>24.4</td><td>19.2</td><td>13.8</td><td>8.9</td><td>33.62569488</td><td>130.3928368</td></tr>
+    <tr><td>Asia</td><td>Japan</td><td>Naha</td><td>23.1</td><td>17</td><td>17.1</td><td>18.9</td><td>21.4</td><td>24</td><td>26.8</td><td>28.9</td><td>28.7</td><td>27.6</td><td>25.2</td><td>22.1</td><td>18.7</td><td>26.21143559</td><td>127.6833522</td></tr>
+    <tr><td>Asia</td><td>Kazakhstan</td><td>Almaty</td><td>10</td><td>-4.7</td><td>-3</td><td>3.4</td><td>11.5</td><td>16.6</td><td>21.6</td><td>23.8</td><td>23</td><td>17.6</td><td>9.9</td><td>2.7</td><td>-2.8</td><td>43.22011845</td><td>76.8617606</td></tr>
+    <tr><td>Asia</td><td>Kazakhstan</td><td>Nur-Sultan</td><td>3.5</td><td>-14.2</td><td>-14.1</td><td>-7.1</td><td>5.2</td><td>13.9</td><td>19.5</td><td>20.8</td><td>18.8</td><td>12.3</td><td>4.6</td><td>-5.4</td><td>-12.1</td><td>51.16250494</td><td>71.48350333</td></tr>
+    <tr><td>Asia</td><td>North Korea</td><td>Pyongyang</td><td>10.8</td><td>-5.8</td><td>2.4</td><td>4.4</td><td>11.2</td><td>17.1</td><td>21.7</td><td>24.3</td><td>24.6</td><td>19.6</td><td>12.5</td><td>4.7</td><td>-2.9</td><td>39.14323489</td><td>125.7989363</td></tr>
+    <tr><td>Asia</td><td>South Korea</td><td>Seoul</td><td>12.5</td><td>-2.4</td><td>0.4</td><td>5.7</td><td>12.5</td><td>17.8</td><td>22.2</td><td>24.9</td><td>25.7</td><td>21.2</td><td>14.8</td><td>7.2</td><td>0.4</td><td>37.55234246</td><td>126.994678</td></tr>
+    <tr><td>Asia</td><td>Kuwait</td><td>Kuwait City</td><td>25.7</td><td>12.5</td><td>14.8</td><td>19.3</td><td>24.9</td><td>31.5</td><td>36</td><td>37.7</td><td>36.8</td><td>33.3</td><td>27.3</td><td>19.9</td><td>14.1</td><td>29.37582948</td><td>47.97598808</td></tr>
+    <tr><td>Asia</td><td>Kyrgyzstan</td><td>Bishkek</td><td>11.3</td><td>-2.6</td><td>-0.8</td><td>5.3</td><td>12.3</td><td>17.4</td><td>22.4</td><td>24.9</td><td>23.8</td><td>18.5</td><td>11</td><td>4.7</td><td>-0.9</td><td>42.87974452</td><td>74.57740454</td></tr>
+    <tr><td>Asia</td><td>Laos</td><td>Vientiane</td><td>25.9</td><td>21.7</td><td>24</td><td>26.7</td><td>28.5</td><td>27.7</td><td>27.7</td><td>27.5</td><td>27.2</td><td>27</td><td>26.4</td><td>24.3</td><td>21.7</td><td>17.97524185</td><td>102.6247733</td></tr>
+    <tr><td>Asia</td><td>Lebanon</td><td>Beirut</td><td>20.9</td><td>14</td><td>14</td><td>16</td><td>18.7</td><td>21.7</td><td>24.9</td><td>27.1</td><td>27.8</td><td>26.8</td><td>24.1</td><td>19.5</td><td>15.8</td><td>33.89493098</td><td>35.49966121</td></tr>
+    <tr><td>Asia</td><td>Malaysia</td><td>Kuala Lumpur</td><td>27.3</td><td>26.9</td><td>27.3</td><td>27.6</td><td>27.7</td><td>28</td><td>27.9</td><td>27.4</td><td>27.5</td><td>27.2</td><td>27.1</td><td>26.8</td><td>26.7</td><td>3.141246024</td><td>101.70484</td></tr>
+    <tr><td>Asia</td><td>Maldives</td><td>Malé</td><td>28</td><td>27.7</td><td>28</td><td>28.5</td><td>28.9</td><td>28.6</td><td>28.2</td><td>28</td><td>27.8</td><td>27.6</td><td>27.6</td><td>27.7</td><td>27.5</td><td>4.175524774</td><td>73.51070029</td></tr>
+    <tr><td>Asia</td><td>Mongolia</td><td>Ulaanbaatar</td><td>-0.4</td><td>-21.6</td><td>-16.6</td><td>-7.4</td><td>2</td><td>10.1</td><td>15.7</td><td>18.2</td><td>16</td><td>9.6</td><td>0.5</td><td>-11.9</td><td>-19</td><td>47.88650005</td><td>106.9114778</td></tr>
+    <tr><td>Asia</td><td>Myanmar</td><td>Mandalay</td><td>28</td><td>21.9</td><td>24.4</td><td>28.8</td><td>31.9</td><td>31.3</td><td>30.8</td><td>30.8</td><td>30.2</td><td>29.7</td><td>28.8</td><td>25.7</td><td>22.2</td><td>21.95499334</td><td>96.09607799</td></tr>
+    <tr><td>Asia</td><td>Myanmar</td><td>Yangon</td><td>27.5</td><td>25</td><td>26.3</td><td>28.6</td><td>30.6</td><td>29.6</td><td>27.4</td><td>26.9</td><td>26.9</td><td>27.4</td><td>27.9</td><td>27.4</td><td>25.4</td><td>16.85355292</td><td>96.17744363</td></tr>
+    <tr><td>Asia</td><td>Nepal</td><td>Kathmandu</td><td>18.3</td><td>10</td><td>11.9</td><td>16.1</td><td>19.2</td><td>21.8</td><td>23.8</td><td>24.1</td><td>24.1</td><td>23.3</td><td>19.1</td><td>14.8</td><td>11.3</td><td>27.71898504</td><td>85.32523706</td></tr>
+    <tr><td>Asia</td><td>Oman</td><td>Muscat</td><td>28</td><td>21</td><td>22</td><td>25</td><td>30</td><td>34</td><td>35</td><td>34</td><td>32</td><td>31</td><td>30</td><td>25</td><td>22</td><td>23.71217289</td><td>58.34807151</td></tr>
+    <tr><td>Asia</td><td>Pakistan</td><td>Karachi</td><td>26</td><td>18.1</td><td>20.2</td><td>24.5</td><td>28.3</td><td>30.5</td><td>31.4</td><td>30.3</td><td>28.9</td><td>28.9</td><td>27.9</td><td>23.9</td><td>19.5</td><td>24.9700806</td><td>67.03753179</td></tr>
+    <tr><td>Asia</td><td>Pakistan</td><td>Lahore</td><td>24.3</td><td>12.8</td><td>15.4</td><td>20.5</td><td>26.8</td><td>31.2</td><td>33.9</td><td>31.5</td><td>30.7</td><td>29.7</td><td>25.6</td><td>19.5</td><td>14.2</td><td>31.52501555</td><td>74.36665342</td></tr>
+    <tr><td>Asia</td><td>Philippines</td><td>Manila</td><td>28.4</td><td>26.7</td><td>27.4</td><td>28.7</td><td>30.1</td><td>30</td><td>29.3</td><td>28.5</td><td>28.3</td><td>28.4</td><td>28.4</td><td>28</td><td>27</td><td>14.60499537</td><td>120.9739626</td></tr>
+    <tr><td>Asia</td><td>Russia</td><td>Anadyr</td><td>-6.9</td><td>-22.6</td><td>-22</td><td>-19.3</td><td>-12.8</td><td>-1.6</td><td>6.3</td><td>11.6</td><td>10.1</td><td>4.7</td><td>-4.6</td><td>-13.3</td><td>-19.3</td><td>64.7329181</td><td>177.4929236</td></tr>
+    <tr><td>Asia</td><td>Russia</td><td>Dikson</td><td>-11.1</td><td>-24.8</td><td>-25.4</td><td>-22.1</td><td>-17.2</td><td>-7.8</td><td>0.4</td><td>4.9</td><td>5.5</td><td>1.6</td><td>-7.5</td><td>-17.5</td><td>-22.9</td><td>73.50830466</td><td>80.52644086</td></tr>
+    <tr><td>Asia</td><td>Russia</td><td>Irkutsk</td><td>1</td><td>-17.8</td><td>-14.4</td><td>-6.4</td><td>2.5</td><td>10.2</td><td>15.4</td><td>18.3</td><td>15.9</td><td>9.2</td><td>1.8</td><td>-7.6</td><td>-15.3</td><td>52.39513101</td><td>104.3345857</td></tr>
+    <tr><td>Asia</td><td>Russia</td><td>Novosibirsk</td><td>1.7</td><td>-16.5</td><td>-14.8</td><td>-7.6</td><td>2.3</td><td>11.8</td><td>17.1</td><td>19.4</td><td>16.6</td><td>10.2</td><td>3.1</td><td>-6.9</td><td>-14</td><td>55.01850337</td><td>82.913829</td></tr>
+    <tr><td>Asia</td><td>Russia</td><td>Petropavlovsk- Kamchatsky</td><td>1.9</td><td>-7.6</td><td>-7.1</td><td>-4.6</td><td>-0.6</td><td>3.4</td><td>8.2</td><td>11.5</td><td>12.5</td><td>9.7</td><td>4.9</td><td>-1.3</td><td>-5.8</td><td>53.06177715</td><td>158.6445639</td></tr>
+    <tr><td>Asia</td><td>Russia</td><td>Vladivostok</td><td>4.9</td><td>-12.3</td><td>-8.4</td><td>-1.9</td><td>5.1</td><td>9.8</td><td>13.6</td><td>17.6</td><td>19.8</td><td>16</td><td>8.9</td><td>-0.9</td><td>-9.1</td><td>43.18221557</td><td>131.9153401</td></tr>
+    <tr><td>Asia</td><td>Russia</td><td>Yakutsk</td><td>-8.8</td><td>-38.6</td><td>-33.8</td><td>-20.1</td><td>-4.8</td><td>7.5</td><td>16.4</td><td>19.5</td><td>15.2</td><td>6.1</td><td>-7.8</td><td>-27</td><td>-37.6</td><td>62.03738052</td><td>129.7292469</td></tr>
+    <tr><td>Asia</td><td>Saudi Arabia</td><td>Abha</td><td>18</td><td>13</td><td>14</td><td>16</td><td>18</td><td>21</td><td>23</td><td>23</td><td>22</td><td>21</td><td>18</td><td>15</td><td>13</td><td>18.25047627</td><td>42.51683012</td></tr>
+    <tr><td>Asia</td><td>Saudi Arabia</td><td>Riyadh</td><td>26</td><td>14</td><td>16</td><td>21</td><td>26</td><td>32</td><td>34</td><td>36</td><td>35</td><td>32</td><td>27</td><td>21</td><td>16</td><td>24.81266954</td><td>46.72109289</td></tr>
+    <tr><td>Asia</td><td>Singapore</td><td>Singapore</td><td>27</td><td>27</td><td>27</td><td>28</td><td>28</td><td>28</td><td>28</td><td>28</td><td>28</td><td>27</td><td>27</td><td>27</td><td>26</td><td>1.35175143</td><td>103.8648402</td></tr>
+    <tr><td>Asia</td><td>Sri Lanka</td><td>Colombo</td><td>27.4</td><td>26.6</td><td>26.9</td><td>27.7</td><td>28.2</td><td>28.3</td><td>27.9</td><td>27.6</td><td>27.6</td><td>27.5</td><td>27</td><td>26.7</td><td>26.6</td><td>6.926268016</td><td>79.86186975</td></tr>
+    <tr><td>Asia</td><td>Syria</td><td>Damascus</td><td>17</td><td>6.1</td><td>7.7</td><td>11.4</td><td>16.2</td><td>20.8</td><td>25</td><td>27.3</td><td>27</td><td>24</td><td>19</td><td>12.1</td><td>7.5</td><td>33.56549944</td><td>36.33303727</td></tr>
+    <tr><td>Asia</td><td>Tajikistan</td><td>Dushanbe</td><td>14.7</td><td>2.1</td><td>3.8</td><td>9.2</td><td>15.4</td><td>20</td><td>25.3</td><td>27.1</td><td>24.9</td><td>20.1</td><td>14.3</td><td>8.9</td><td>4.8</td><td>38.54331408</td><td>68.81179144</td></tr>
+    <tr><td>Asia</td><td>Taiwan</td><td>Taipei</td><td>23</td><td>16.1</td><td>16.5</td><td>18.5</td><td>21.9</td><td>25.2</td><td>27.7</td><td>29.6</td><td>29.2</td><td>27.4</td><td>24.5</td><td>21.5</td><td>17.9</td><td>25.0182047</td><td>121.5651337</td></tr>
+    <tr><td>Asia</td><td>Thailand</td><td>Bangkok</td><td>28.6</td><td>27</td><td>28.3</td><td>29.5</td><td>30.5</td><td>29.9</td><td>29.5</td><td>29</td><td>28.8</td><td>28.3</td><td>28.1</td><td>27.8</td><td>26.5</td><td>13.74445209</td><td>100.5108509</td></tr>
+    <tr><td>Asia</td><td>Thailand</td><td>Chiang Mai</td><td>25.8</td><td>21.5</td><td>23.9</td><td>27.1</td><td>29.3</td><td>28.2</td><td>27.6</td><td>27.2</td><td>26.8</td><td>26.7</td><td>26.1</td><td>24</td><td>21.4</td><td>18.82689783</td><td>99.01986489</td></tr>
+    <tr><td>Asia</td><td>Thailand</td><td>Hat Yai</td><td>27</td><td>26</td><td>26.7</td><td>27.6</td><td>28</td><td>27.8</td><td>27.7</td><td>27.4</td><td>27.4</td><td>26.9</td><td>26.5</td><td>26</td><td>25.6</td><td>7.009260498</td><td>100.4776096</td></tr>
+    <tr><td>Asia</td><td>Thailand</td><td>Nakhon Ratchasima</td><td>27.3</td><td>24.3</td><td>26.9</td><td>28.9</td><td>30</td><td>29.1</td><td>29.1</td><td>28.6</td><td>28.1</td><td>27.4</td><td>26.7</td><td>25.4</td><td>23.6</td><td>14.97882081</td><td>102.0874556</td></tr>
+    <tr><td>Asia</td><td>Turkey</td><td>Ankara</td><td>12</td><td>0.4</td><td>1.9</td><td>6</td><td>11.3</td><td>16.1</td><td>20.1</td><td>23.6</td><td>23.4</td><td>18.8</td><td>13</td><td>7</td><td>2.6</td><td>39.94331323</td><td>32.83073517</td></tr>
+    <tr><td>Asia</td><td>Turkey</td><td>Erzurum</td><td>5.1</td><td>-10.2</td><td>-8.7</td><td>-2.7</td><td>5.1</td><td>10.2</td><td>14.1</td><td>18.4</td><td>18.7</td><td>13.9</td><td>7.5</td><td>0.4</td><td>-6.7</td><td>39.90558227</td><td>41.27997739</td></tr>
+    <tr><td>Asia</td><td>Turkey</td><td>İzmir</td><td>17.9</td><td>8.9</td><td>9.5</td><td>11.7</td><td>15.9</td><td>20.8</td><td>25.6</td><td>28</td><td>27.7</td><td>23.7</td><td>18.8</td><td>14</td><td>10.6</td><td>38.40952141</td><td>27.1820196</td></tr>
+    <tr><td>Asia</td><td>Turkmenistan</td><td>Ashgabat</td><td>17.1</td><td>3.5</td><td>5.5</td><td>10.4</td><td>17.4</td><td>23.3</td><td>29</td><td>31.3</td><td>29.6</td><td>23.6</td><td>16.5</td><td>10.2</td><td>5.1</td><td>37.96474856</td><td>58.33061396</td></tr>
+    <tr><td>Asia</td><td>United Arab Emirates</td><td>Dubai</td><td>26.9</td><td>18.7</td><td>19.3</td><td>22.3</td><td>26.1</td><td>29.9</td><td>32.2</td><td>34.4</td><td>34.4</td><td>32.1</td><td>28.7</td><td>24.3</td><td>20.6</td><td>25.17687541</td><td>55.27411103</td></tr>
+    <tr><td>Asia</td><td>Uzbekistan</td><td>Tashkent</td><td>14.8</td><td>1.9</td><td>3.9</td><td>9.4</td><td>15.5</td><td>20.5</td><td>25.8</td><td>27.8</td><td>26.2</td><td>20.6</td><td>13.9</td><td>8.5</td><td>3.5</td><td>41.30418056</td><td>69.28416587</td></tr>
+    <tr><td>Asia</td><td>Vietnam</td><td>Da Lat</td><td>17.9</td><td>15.8</td><td>16.7</td><td>17.8</td><td>18.9</td><td>19.3</td><td>19</td><td>18.6</td><td>18.5</td><td>18.4</td><td>18.1</td><td>17.3</td><td>16.2</td><td>11.93749409</td><td>108.4575869</td></tr>
+    <tr><td>Asia</td><td>Vietnam</td><td>Da Nang</td><td>25.8</td><td>21.5</td><td>22.3</td><td>24.2</td><td>26.4</td><td>28.3</td><td>29.2</td><td>29.3</td><td>29</td><td>27.5</td><td>25.9</td><td>24.1</td><td>22.1</td><td>16.0542596</td><td>108.2027573</td></tr>
+    <tr><td>Asia</td><td>Vietnam</td><td>Hanoi</td><td>23.6</td><td>16.4</td><td>17.2</td><td>20</td><td>23.9</td><td>27.4</td><td>28.9</td><td>29.2</td><td>28.6</td><td>27.5</td><td>24.9</td><td>21.5</td><td>18.2</td><td>21.02626115</td><td>105.8381648</td></tr>
+    <tr><td>Asia</td><td>Vietnam</td><td>Ho Chi Minh City</td><td>27.4</td><td>26</td><td>26.8</td><td>28</td><td>29.2</td><td>28.8</td><td>27.8</td><td>27.5</td><td>27.4</td><td>27.2</td><td>27</td><td>26.7</td><td>26</td><td>10.77085609</td><td>106.6910704</td></tr>
+    <tr><td>Asia</td><td>Yemen</td><td>Aden</td><td>29.1</td><td>25.7</td><td>26</td><td>27.2</td><td>28.9</td><td>31</td><td>32.7</td><td>32.7</td><td>31.5</td><td>31.6</td><td>28.9</td><td>27.1</td><td>26</td><td>12.78498345</td><td>45.02841706</td></tr>
+    <tr><td>Asia</td><td>Yemen</td><td>Sana'a</td><td>20</td><td>16</td><td>18</td><td>20</td><td>20</td><td>22</td><td>23</td><td>24</td><td>23</td><td>22</td><td>18</td><td>16</td><td>15</td><td>15.37575098</td><td>44.19239559</td></tr>
+    <tr><td>Europe</td><td>Albania</td><td>Tirana</td><td>15.2</td><td>6.7</td><td>7.8</td><td>10</td><td>13.4</td><td>18</td><td>21.6</td><td>24</td><td>23.8</td><td>20.7</td><td>16</td><td>11.7</td><td>8.1</td><td>41.32710973</td><td>19.82297258</td></tr>
+    <tr><td>Europe</td><td>Andorra</td><td>Andorra la Vella</td><td>9.8</td><td>2.2</td><td>3.5</td><td>5.8</td><td>7.5</td><td>11.5</td><td>15.4</td><td>18.8</td><td>18.5</td><td>14.9</td><td>10.3</td><td>5.7</td><td>3</td><td>42.50639174</td><td>1.523064005</td></tr>
+    <tr><td>Europe</td><td>Austria</td><td>Vienna</td><td>10.4</td><td>0.3</td><td>1.5</td><td>5.7</td><td>10.7</td><td>15.7</td><td>18.7</td><td>20.8</td><td>20.2</td><td>15.4</td><td>10.2</td><td>5.1</td><td>1.1</td><td>48.22954536</td><td>16.40026399</td></tr>
+    <tr><td>Europe</td><td>Belarus</td><td>Minsk</td><td>6.7</td><td>-4.5</td><td>-4.4</td><td>0</td><td>7.2</td><td>13.3</td><td>16.4</td><td>18.5</td><td>17.5</td><td>12.1</td><td>6.6</td><td>0.6</td><td>-3.4</td><td>53.91329278</td><td>27.55481271</td></tr>
+    <tr><td>Europe</td><td>Belgium</td><td>Brussels</td><td>10.5</td><td>3.3</td><td>3.7</td><td>6.8</td><td>9.8</td><td>13.6</td><td>16.2</td><td>18.4</td><td>18</td><td>14.9</td><td>11.1</td><td>6.8</td><td>3.9</td><td>50.85711729</td><td>4.399839439</td></tr>
+    <tr><td>Europe</td><td>Bosnia and Herzegovina</td><td>Sarajevo</td><td>10.1</td><td>-0.5</td><td>1.4</td><td>5.7</td><td>10</td><td>14.8</td><td>17.7</td><td>19.7</td><td>19.7</td><td>15.3</td><td>11</td><td>5.4</td><td>0.9</td><td>43.86054016</td><td>18.41964379</td></tr>
+    <tr><td>Europe</td><td>Bulgaria</td><td>Sofia</td><td>10.6</td><td>-0.5</td><td>1.1</td><td>5.4</td><td>10.6</td><td>15.4</td><td>18.9</td><td>21.2</td><td>21</td><td>16.5</td><td>11.3</td><td>5.1</td><td>0.7</td><td>42.6946697</td><td>23.35556995</td></tr>
+    <tr><td>Europe</td><td>Croatia</td><td>Zagreb</td><td>10.7</td><td>0.3</td><td>2.3</td><td>6.4</td><td>10.7</td><td>15.8</td><td>18.8</td><td>20.6</td><td>20.1</td><td>15.9</td><td>10.5</td><td>5</td><td>1.4</td><td>45.81044412</td><td>15.97599766</td></tr>
+    <tr><td>Europe</td><td>Croatia</td><td>Split</td><td>16.1</td><td>8</td><td>8.4</td><td>10.6</td><td>13.7</td><td>18.9</td><td>22.8</td><td>25.7</td><td>25.4</td><td>21.2</td><td>16.8</td><td>12</td><td>9.1</td><td>43.51732221</td><td>16.45300728</td></tr>
+    <tr><td>Europe</td><td>Cyprus</td><td>Nicosia</td><td>19.7</td><td>10.6</td><td>10.6</td><td>13.1</td><td>17.1</td><td>22.3</td><td>26.9</td><td>29.7</td><td>29.4</td><td>26.2</td><td>22.3</td><td>16.3</td><td>12</td><td>35.18701621</td><td>33.37711205</td></tr>
+    <tr><td>Europe</td><td>Czech Republic</td><td>Prague</td><td>8.4</td><td>-1.4</td><td>-0.4</td><td>3.6</td><td>8.4</td><td>13.4</td><td>16.1</td><td>18.2</td><td>17.8</td><td>13.5</td><td>8.5</td><td>3.1</td><td>-0.3</td><td>50.07897753</td><td>14.43471848</td></tr>
+    <tr><td>Europe</td><td>Denmark</td><td>Copenhagen</td><td>9.1</td><td>1.4</td><td>1.4</td><td>3.5</td><td>7.7</td><td>12.5</td><td>15.6</td><td>18.1</td><td>17.7</td><td>13.9</td><td>9.8</td><td>5.5</td><td>2.5</td><td>55.67240908</td><td>12.57493971</td></tr>
+    <tr><td>Europe</td><td>Estonia</td><td>Tallinn</td><td>6.4</td><td>-2.9</td><td>-3.6</td><td>-0.6</td><td>4.8</td><td>10.2</td><td>14.5</td><td>17.6</td><td>16.5</td><td>12</td><td>6.5</td><td>2</td><td>-0.9</td><td>59.43357836</td><td>24.80552754</td></tr>
+    <tr><td>Europe</td><td>Finland</td><td>Helsinki</td><td>5.9</td><td>-3.9</td><td>-4.7</td><td>-1.3</td><td>3.9</td><td>10.2</td><td>14.6</td><td>17.8</td><td>16.3</td><td>11.5</td><td>6.6</td><td>1.6</td><td>-2</td><td>60.17481827</td><td>25.01179426</td></tr>
+    <tr><td>Europe</td><td>Finland</td><td>Kuopio</td><td>3.4</td><td>-9.2</td><td>-9.2</td><td>-4.1</td><td>2</td><td>9.1</td><td>14.5</td><td>17.5</td><td>15</td><td>9.7</td><td>4.1</td><td>-2</td><td>-6.7</td><td>62.89835229</td><td>27.69972742</td></tr>
+    <tr><td>Europe</td><td>Finland</td><td>Oulu</td><td>2.7</td><td>-9.6</td><td>-9.3</td><td>-4.8</td><td>1.4</td><td>7.8</td><td>13.5</td><td>16.5</td><td>14.1</td><td>8.9</td><td>3.3</td><td>-2.8</td><td>-7.1</td><td>65.03373536</td><td>25.5470016</td></tr>
+    <tr><td>Europe</td><td>France</td><td>Lyon</td><td>12.5</td><td>3.4</td><td>4.8</td><td>8.4</td><td>11.4</td><td>15.8</td><td>19.4</td><td>22.1</td><td>21.6</td><td>17.6</td><td>13.4</td><td>7.5</td><td>4.3</td><td>45.76393816</td><td>4.832545596</td></tr>
+    <tr><td>Europe</td><td>France</td><td>Marseille</td><td>15.8</td><td>8.4</td><td>8.9</td><td>11.6</td><td>13.8</td><td>17.9</td><td>21.3</td><td>24.5</td><td>24.1</td><td>20.7</td><td>16.9</td><td>11.8</td><td>9.3</td><td>43.28880252</td><td>5.400402031</td></tr>
+    <tr><td>Europe</td><td>France</td><td>Paris</td><td>12.3</td><td>4.9</td><td>5.6</td><td>8.8</td><td>11.4</td><td>15.1</td><td>18.2</td><td>20.4</td><td>20.2</td><td>16.9</td><td>12.9</td><td>8.1</td><td>5.4</td><td>48.86019299</td><td>2.348431548</td></tr>
+    <tr><td>Europe</td><td>Germany</td><td>Berlin</td><td>10.3</td><td>0.6</td><td>2.3</td><td>5.1</td><td>10.2</td><td>14.8</td><td>17.9</td><td>20.3</td><td>19.7</td><td>15.3</td><td>10.5</td><td>6</td><td>1.3</td><td>52.50734919</td><td>13.42470795</td></tr>
+    <tr><td>Europe</td><td>Germany</td><td>Frankfurt</td><td>10.6</td><td>1.6</td><td>2.4</td><td>6.4</td><td>10.3</td><td>14.7</td><td>17.8</td><td>20</td><td>19.5</td><td>15.2</td><td>10.4</td><td>5.6</td><td>2.5</td><td>50.11848615</td><td>8.679816098</td></tr>
+    <tr><td>Europe</td><td>Greece</td><td>Piraeus</td><td>19.4</td><td>11.1</td><td>11.2</td><td>13.3</td><td>16.9</td><td>21.4</td><td>26.3</td><td>29</td><td>28.8</td><td>25.2</td><td>20.6</td><td>15.8</td><td>12.6</td><td>37.94355712</td><td>23.64645922</td></tr>
+    <tr><td>Europe</td><td>Hungary</td><td>Budapest</td><td>11.3</td><td>0.4</td><td>2.3</td><td>6.1</td><td>12</td><td>16.6</td><td>19.7</td><td>21.5</td><td>21.2</td><td>16.9</td><td>11.8</td><td>5.4</td><td>1.8</td><td>47.49829549</td><td>19.03073273</td></tr>
+    <tr><td>Europe</td><td>Iceland</td><td>Reykjavík</td><td>4.3</td><td>-0.5</td><td>0.4</td><td>0.5</td><td>2.9</td><td>6.3</td><td>9</td><td>10.6</td><td>10.3</td><td>7.4</td><td>4.4</td><td>1.1</td><td>-0.2</td><td>64.13476107</td><td>-21.90292956</td></tr>
+    <tr><td>Europe</td><td>Ireland</td><td>Dublin</td><td>9.8</td><td>5.3</td><td>5.3</td><td>6.8</td><td>8.3</td><td>10.9</td><td>13.6</td><td>15.6</td><td>15.3</td><td>13.4</td><td>10.5</td><td>7.4</td><td>5.6</td><td>53.34529521</td><td>-6.262339561</td></tr>
+    <tr><td>Europe</td><td>Italy</td><td>Milan</td><td>13</td><td>2.5</td><td>4.7</td><td>9</td><td>12.2</td><td>17</td><td>20.8</td><td>23.6</td><td>23</td><td>19.2</td><td>13.4</td><td>7.2</td><td>3.3</td><td>45.46680586</td><td>9.191120101</td></tr>
+    <tr><td>Europe</td><td>Italy</td><td>Palermo</td><td>18.5</td><td>12.5</td><td>12.6</td><td>13.5</td><td>15.7</td><td>18.9</td><td>22.4</td><td>25.6</td><td>26.2</td><td>24.1</td><td>20.3</td><td>16.8</td><td>13.7</td><td>38.11540637</td><td>13.36140651</td></tr>
+    <tr><td>Europe</td><td>Italy</td><td>Rome</td><td>15.2</td><td>7.5</td><td>8.2</td><td>10.2</td><td>12.6</td><td>17.2</td><td>21.1</td><td>24.1</td><td>24.5</td><td>20.8</td><td>16.4</td><td>11.4</td><td>8.4</td><td>41.90129843</td><td>12.47281924</td></tr>
+    <tr><td>Europe</td><td>Italy</td><td>Napoli</td><td>15.9</td><td>8.7</td><td>8.8</td><td>11.1</td><td>13.2</td><td>17.8</td><td>21.4</td><td>24.3</td><td>24.7</td><td>21.4</td><td>17.1</td><td>12.4</td><td>9.8</td><td>40.85176816</td><td>14.27081419</td></tr>
+    <tr><td>Europe</td><td>Latvia</td><td>Riga</td><td>6.2</td><td>-4.7</td><td>-4.2</td><td>0.5</td><td>5.1</td><td>11.4</td><td>15.5</td><td>16.9</td><td>16.2</td><td>12</td><td>7.4</td><td>2.1</td><td>-2.3</td><td>56.94369056</td><td>24.15456283</td></tr>
+    <tr><td>Europe</td><td>Liechtenstein</td><td>Vaduz</td><td>10.1</td><td>0.8</td><td>2.1</td><td>6.3</td><td>9.9</td><td>14.4</td><td>17.1</td><td>19</td><td>18.4</td><td>14.9</td><td>10.9</td><td>5.2</td><td>1.9</td><td>47.14161716</td><td>9.536069712</td></tr>
+    <tr><td>Europe</td><td>Lithuania</td><td>Vilnius</td><td>6</td><td>-6.1</td><td>-4.8</td><td>-0.6</td><td>5.7</td><td>12.5</td><td>15.8</td><td>16.9</td><td>16.3</td><td>11.6</td><td>6.6</td><td>1.2</td><td>-2.9</td><td>54.68602842</td><td>25.28758299</td></tr>
+    <tr><td>Europe</td><td>Luxembourg</td><td>Luxembourg City</td><td>9.3</td><td>0.8</td><td>1.6</td><td>5.2</td><td>8.7</td><td>13</td><td>15.9</td><td>18.2</td><td>17.7</td><td>13.9</td><td>9.5</td><td>4.7</td><td>1.8</td><td>54.68602842</td><td>25.28758299</td></tr>
+    <tr><td>Europe</td><td>Macedonia</td><td>Skopje</td><td>12.4</td><td>0.1</td><td>2.6</td><td>7.6</td><td>12.1</td><td>17.3</td><td>21.5</td><td>23.8</td><td>23.8</td><td>18.8</td><td>13.1</td><td>6.5</td><td>1.7</td><td>49.60693223</td><td>6.127629897</td></tr>
+    <tr><td>Europe</td><td>Malta</td><td>Valletta</td><td>18.8</td><td>12.8</td><td>12.8</td><td>13.3</td><td>15.6</td><td>18.9</td><td>22.8</td><td>26.1</td><td>26.7</td><td>23.9</td><td>21.1</td><td>17.2</td><td>13.9</td><td>35.89781995</td><td>14.51234955</td></tr>
+    <tr><td>Europe</td><td>Moldova</td><td>Chișinău</td><td>10.2</td><td>-1.9</td><td>-0.8</td><td>3.7</td><td>10.4</td><td>16.5</td><td>19.9</td><td>22.1</td><td>21.7</td><td>16.3</td><td>10.5</td><td>4.1</td><td>-0.6</td><td>47.01061734</td><td>28.86298137</td></tr>
+    <tr><td>Europe</td><td>Monaco</td><td>Monaco</td><td>16.4</td><td>10.2</td><td>10.2</td><td>12</td><td>13.8</td><td>17.5</td><td>20.9</td><td>23.8</td><td>24.2</td><td>21.1</td><td>17.9</td><td>13.8</td><td>11.2</td><td>43.73927636</td><td>7.432461301</td></tr>
+    <tr><td>Europe</td><td>Montenegro</td><td>Podgorica</td><td>15.3</td><td>5</td><td>6.8</td><td>10</td><td>13.9</td><td>19</td><td>22.8</td><td>26</td><td>25.6</td><td>21.4</td><td>15.9</td><td>10.5</td><td>6.5</td><td>42.42893857</td><td>19.26274349</td></tr>
+    <tr><td>Europe</td><td>Netherlands</td><td>Amsterdam</td><td>10.2</td><td>3.4</td><td>3.5</td><td>6.1</td><td>9.1</td><td>12.9</td><td>15.4</td><td>17.6</td><td>17.5</td><td>14.7</td><td>11</td><td>7.1</td><td>4</td><td>52.36045384</td><td>4.88335494</td></tr>
+    <tr><td>Europe</td><td>Norway</td><td>Bergen</td><td>7.7</td><td>1.5</td><td>1.6</td><td>3.3</td><td>5.9</td><td>10.5</td><td>13.5</td><td>14.5</td><td>14.4</td><td>11.5</td><td>8.7</td><td>4.7</td><td>2.6</td><td>52.6715275</td><td>4.69011751</td></tr>
+    <tr><td>Europe</td><td>Norway</td><td>Oslo</td><td>5.7</td><td>-4.3</td><td>-4</td><td>-0.2</td><td>4.5</td><td>10.8</td><td>15.2</td><td>16.4</td><td>15.2</td><td>10.8</td><td>6.3</td><td>0.7</td><td>-3.1</td><td>59.91340705</td><td>10.75077911</td></tr>
+    <tr><td>Europe</td><td>Norway</td><td>Tromsø</td><td>2.9</td><td>-3.8</td><td>-3.7</td><td>-2.3</td><td>0.7</td><td>5.1</td><td>9.2</td><td>11.8</td><td>10.9</td><td>6.9</td><td>3.2</td><td>-0.6</td><td>-2.7</td><td>69.65278105</td><td>18.9527649</td></tr>
+    <tr><td>Europe</td><td>Poland</td><td>Cracow</td><td>9.3</td><td>-1</td><td>0.4</td><td>4.1</td><td>9.8</td><td>14.6</td><td>18.3</td><td>20</td><td>19.2</td><td>14.1</td><td>9.2</td><td>4.4</td><td>0.2</td><td>50.07046811</td><td>19.93423894</td></tr>
+    <tr><td>Europe</td><td>Poland</td><td>Suwałki</td><td>7.2</td><td>-3.3</td><td>-2.6</td><td>0.9</td><td>7.3</td><td>12.6</td><td>15.9</td><td>18.1</td><td>17.4</td><td>12.5</td><td>7</td><td>2.3</td><td>-1.6</td><td>54.10208926</td><td>22.94148593</td></tr>
+    <tr><td>Europe</td><td>Poland</td><td>Warsaw</td><td>8.5</td><td>-1.8</td><td>-0.6</td><td>2.8</td><td>8.7</td><td>14.2</td><td>17</td><td>19.2</td><td>18.3</td><td>13.5</td><td>8.5</td><td>3.3</td><td>-0.7</td><td>52.22907004</td><td>21.01312281</td></tr>
+    <tr><td>Europe</td><td>Poland</td><td>Wrocław</td><td>9.6</td><td>0</td><td>1.1</td><td>4.3</td><td>9.7</td><td>14.3</td><td>17.7</td><td>19.7</td><td>19.3</td><td>14.5</td><td>9.6</td><td>4.8</td><td>1.1</td><td>51.11708164</td><td>17.03717626</td></tr>
+    <tr><td>Europe</td><td>Portugal</td><td>Lisbon</td><td>17.5</td><td>11.6</td><td>12.7</td><td>14.9</td><td>15.9</td><td>18</td><td>21.2</td><td>23.1</td><td>23.5</td><td>22.1</td><td>18.8</td><td>15</td><td>12.4</td><td>38.72192823</td><td>-9.135484489</td></tr>
+    <tr><td>Europe</td><td>Romania</td><td>Bucharest</td><td>10.8</td><td>-1.3</td><td>0.4</td><td>5.4</td><td>11.2</td><td>16.8</td><td>20.6</td><td>22.5</td><td>22</td><td>16.9</td><td>11</td><td>4.7</td><td>0.2</td><td>44.43853976</td><td>26.10493547</td></tr>
+    <tr><td>Europe</td><td>Russia</td><td>Arkhangelsk</td><td>1.3</td><td>-12.7</td><td>-11.4</td><td>-5.5</td><td>0.4</td><td>6.9</td><td>13</td><td>16.3</td><td>13.1</td><td>8.2</td><td>2.3</td><td>-5.1</td><td>-9.8</td><td>64.58432955</td><td>40.49548608</td></tr>
+    <tr><td>Europe</td><td>Russia</td><td>Moscow</td><td>5.8</td><td>-6.5</td><td>-6.7</td><td>-1</td><td>6.7</td><td>13.2</td><td>17</td><td>19.2</td><td>17</td><td>11.3</td><td>5.6</td><td>-1.2</td><td>-5.2</td><td>55.80675806</td><td>37.60516608</td></tr>
+    <tr><td>Europe</td><td>Russia</td><td>Murmansk</td><td>0.6</td><td>-10.1</td><td>-9.7</td><td>-5.5</td><td>-0.7</td><td>4</td><td>9.2</td><td>12.8</td><td>11.1</td><td>7</td><td>1.5</td><td>-4.8</td><td>-8.2</td><td>68.97735121</td><td>33.10121498</td></tr>
+    <tr><td>Europe</td><td>Russia</td><td>Rostov-on-Don</td><td>9.9</td><td>-3</td><td>-2.8</td><td>2.4</td><td>10.6</td><td>16.6</td><td>21</td><td>23.4</td><td>22.6</td><td>16.7</td><td>10</td><td>2.9</td><td>-1.6</td><td>47.26090117</td><td>39.74129239</td></tr>
+    <tr><td>Europe</td><td>Russia</td><td>Saint Petersburg</td><td>5.8</td><td>-5.5</td><td>-5.8</td><td>-1.3</td><td>5.1</td><td>11.3</td><td>15.7</td><td>18.8</td><td>16.9</td><td>11.6</td><td>6.2</td><td>0.1</td><td>-3.7</td><td>59.9282177</td><td>30.34179064</td></tr>
+    <tr><td>Europe</td><td>Russia</td><td>Sochi</td><td>14.2</td><td>6.1</td><td>6</td><td>8.2</td><td>12.1</td><td>16</td><td>20.2</td><td>23.2</td><td>23.6</td><td>20</td><td>15.8</td><td>11.1</td><td>8.1</td><td>43.60443486</td><td>39.73714346</td></tr>
+    <tr><td>Europe</td><td>San Marino</td><td>City of San Marino</td><td>11.8</td><td>2.7</td><td>4.2</td><td>6.4</td><td>10.1</td><td>14.6</td><td>18.5</td><td>21.3</td><td>21.4</td><td>17.8</td><td>12.8</td><td>8</td><td>4.2</td><td>43.96374926</td><td>12.23101708</td></tr>
+    <tr><td>Europe</td><td>Serbia</td><td>Belgrade</td><td>12.5</td><td>1.4</td><td>3.1</td><td>7.6</td><td>12.9</td><td>18.1</td><td>21</td><td>23</td><td>22.7</td><td>18</td><td>12.9</td><td>7.1</td><td>2.7</td><td>44.84574052</td><td>20.59297431</td></tr>
+    <tr><td>Europe</td><td>Slovakia</td><td>Bratislava</td><td>10.5</td><td>-0.4</td><td>1.2</td><td>5.5</td><td>11</td><td>16</td><td>19.1</td><td>21.3</td><td>20.7</td><td>15.9</td><td>10.4</td><td>4.9</td><td>0.7</td><td>48.14944078</td><td>17.16672221</td></tr>
+    <tr><td>Europe</td><td>Slovenia</td><td>Ljubljana</td><td>10.9</td><td>0.3</td><td>1.9</td><td>6.5</td><td>10.8</td><td>15.8</td><td>19.1</td><td>21.3</td><td>20.6</td><td>16</td><td>11.2</td><td>5.6</td><td>1.2</td><td>46.05751985</td><td>14.50428824</td></tr>
+    <tr><td>Europe</td><td>Spain</td><td>Barcelona</td><td>18.2</td><td>11.8</td><td>12.4</td><td>14.2</td><td>15.8</td><td>19.3</td><td>23</td><td>25.7</td><td>26.1</td><td>23</td><td>19.5</td><td>14.9</td><td>12.3</td><td>41.40378248</td><td>2.17382857</td></tr>
+    <tr><td>Europe</td><td>Spain</td><td>Las Palmas de Gran Canaria</td><td>21.2</td><td>18.1</td><td>18.4</td><td>19.3</td><td>19.5</td><td>20.5</td><td>22.2</td><td>23.8</td><td>24.6</td><td>24.3</td><td>23.1</td><td>21.2</td><td>19.3</td><td>28.12204968</td><td>-15.43652767</td></tr>
+    <tr><td>Europe</td><td>Spain</td><td>Madrid</td><td>15</td><td>6.3</td><td>7.9</td><td>11.2</td><td>12.9</td><td>16.7</td><td>22.2</td><td>25.6</td><td>25.1</td><td>20.9</td><td>15.1</td><td>9.9</td><td>6.9</td><td>40.41748479</td><td>-3.676110851</td></tr>
+    <tr><td>Europe</td><td>Spain</td><td>Seville</td><td>19.2</td><td>11</td><td>12.5</td><td>15.6</td><td>17.3</td><td>20.7</td><td>25.1</td><td>28.2</td><td>27.9</td><td>25</td><td>20.2</td><td>15.1</td><td>11.9</td><td>37.38832391</td><td>-5.981322924</td></tr>
+    <tr><td>Europe</td><td>Spain</td><td>Valencia</td><td>18.3</td><td>11.8</td><td>12.5</td><td>14.6</td><td>16.2</td><td>19</td><td>22.9</td><td>25.6</td><td>26.1</td><td>23.5</td><td>19.7</td><td>15.3</td><td>12.6</td><td>39.47033928</td><td>-0.381769229</td></tr>
+    <tr><td>Europe</td><td>Sweden</td><td>Stockholm</td><td>6.6</td><td>-2.8</td><td>-3</td><td>0.1</td><td>4.6</td><td>10.7</td><td>15.6</td><td>17.2</td><td>16.2</td><td>11.9</td><td>7.5</td><td>2.6</td><td>-1</td><td>59.32711768</td><td>18.10495685</td></tr>
+    <tr><td>Europe</td><td>Switzerland</td><td>Zürich</td><td>9.3</td><td>0.3</td><td>1.3</td><td>5.3</td><td>8.8</td><td>13.3</td><td>16.4</td><td>18.6</td><td>18</td><td>14.1</td><td>9.9</td><td>4.4</td><td>1.4</td><td>47.37613606</td><td>8.540886313</td></tr>
+    <tr><td>Europe</td><td>Turkey</td><td>Istanbul</td><td>13.9</td><td>5.7</td><td>5.7</td><td>7</td><td>11.1</td><td>15.7</td><td>20.4</td><td>22.9</td><td>23.1</td><td>19.8</td><td>15.6</td><td>11.5</td><td>8</td><td>41.0029096</td><td>28.99155077</td></tr>
+    <tr><td>Europe</td><td>Ukraine</td><td>Kiev</td><td>8.4</td><td>-3.5</td><td>-3</td><td>1.8</td><td>9.3</td><td>15.5</td><td>18.5</td><td>20.5</td><td>19.7</td><td>14.2</td><td>8.4</td><td>1.9</td><td>-2.3</td><td>50.44457121</td><td>30.51206629</td></tr>
+    <tr><td>Europe</td><td>Ukraine</td><td>Lviv</td><td>7.8</td><td>-3.1</td><td>-2.2</td><td>1.9</td><td>8.3</td><td>13.8</td><td>16.4</td><td>18.3</td><td>17.7</td><td>13</td><td>8.1</td><td>2.6</td><td>-1.8</td><td>49.84321859</td><td>24.11936059</td></tr>
+    <tr><td>Europe</td><td>Ukraine</td><td>Odessa</td><td>10.7</td><td>-0.5</td><td>-0.2</td><td>3.5</td><td>9.4</td><td>15.6</td><td>20</td><td>22.6</td><td>22.3</td><td>17.2</td><td>11.6</td><td>5.7</td><td>1.1</td><td>46.44314872</td><td>30.679966</td></tr>
+    <tr><td>Europe</td><td>United Kingdom</td><td>Edinburgh</td><td>9.3</td><td>4.2</td><td>4.5</td><td>6.2</td><td>8.1</td><td>10.8</td><td>13.5</td><td>15.3</td><td>15.2</td><td>13</td><td>9.8</td><td>6.7</td><td>4.2</td><td>55.94695633</td><td>-3.19401053</td></tr>
+    <tr><td>Europe</td><td>United Kingdom</td><td>London</td><td>10.3</td><td>4.3</td><td>4.5</td><td>6.9</td><td>8.7</td><td>12.1</td><td>15.1</td><td>17.3</td><td>17</td><td>14.3</td><td>10.9</td><td>7.2</td><td>4.7</td><td>51.52284151</td><td>-0.116779564</td></tr>
+    <tr><td>North America</td><td>Antigua and Barbuda</td><td>St. John's</td><td>26.9</td><td>25.4</td><td>25.2</td><td>25.6</td><td>26.3</td><td>27.2</td><td>27.9</td><td>28.2</td><td>28.3</td><td>28.1</td><td>27.5</td><td>26.8</td><td>25.9</td><td>17.07449904</td><td>-61.81499563</td></tr>
+    <tr><td>North America</td><td>Aruba</td><td>Oranjestad</td><td>28.1</td><td>26.7</td><td>26.8</td><td>27.2</td><td>27.9</td><td>28.5</td><td>28.7</td><td>28.6</td><td>29.1</td><td>29.2</td><td>28.7</td><td>28.1</td><td>27.2</td><td>12.50623939</td><td>-70.00811858</td></tr>
+    <tr><td>North America</td><td>The Bahamas</td><td>Nassau</td><td>24.6</td><td>21.1</td><td>21.1</td><td>22.2</td><td>23.4</td><td>25.3</td><td>26.9</td><td>27.9</td><td>27.9</td><td>27.3</td><td>25.9</td><td>23.8</td><td>21.9</td><td>25.04555932</td><td>-77.34873684</td></tr>
+    <tr><td>North America</td><td>Barbados</td><td>Bridgetown</td><td>27</td><td>25.8</td><td>25.7</td><td>26.2</td><td>26.8</td><td>27.6</td><td>27.7</td><td>27.6</td><td>27.8</td><td>27.7</td><td>27.5</td><td>27</td><td>26.4</td><td>13.10548653</td><td>-59.61633493</td></tr>
+    <tr><td>North America</td><td>Belize</td><td>Belize City</td><td>26.7</td><td>24</td><td>24.9</td><td>25.9</td><td>27.3</td><td>28.3</td><td>28.5</td><td>28.1</td><td>28.2</td><td>28</td><td>27</td><td>25.6</td><td>24.5</td><td>17.50435374</td><td>-88.19634079</td></tr>
+    <tr><td>North America</td><td>Bermuda</td><td>Hamilton</td><td>22.3</td><td>18.3</td><td>18</td><td>18.2</td><td>19.6</td><td>22</td><td>25</td><td>27.2</td><td>27.6</td><td>26.6</td><td>24.4</td><td>21.6</td><td>19.5</td><td>32.29602685</td><td>-64.78578484</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Calgary</td><td>4.4</td><td>-7.1</td><td>-5.4</td><td>-1.6</td><td>4.6</td><td>9.7</td><td>13.7</td><td>16.5</td><td>15.8</td><td>11</td><td>5.2</td><td>-2.4</td><td>-6.8</td><td>51.04869606</td><td>-114.0967676</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Edmonton</td><td>4.2</td><td>-10.4</td><td>-7.6</td><td>-2.5</td><td>5.4</td><td>11.5</td><td>15.5</td><td>17.7</td><td>16.9</td><td>11.4</td><td>5.1</td><td>-4.1</td><td>-8.8</td><td>53.56230723</td><td>-113.4389563</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Gjoa Haven</td><td>-14.4</td><td>-33.8</td><td>-34</td><td>-28.9</td><td>-20.4</td><td>-9.4</td><td>1.4</td><td>8</td><td>5.8</td><td>0.1</td><td>-9.5</td><td>-22.4</td><td>-29.9</td><td>68.62888619</td><td>-95.83867793</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Halifax</td><td>7.5</td><td>-4.1</td><td>-3.6</td><td>-0.2</td><td>4.9</td><td>10.1</td><td>15.2</td><td>18.8</td><td>19.1</td><td>15.5</td><td>9.9</td><td>4.8</td><td>-0.8</td><td>44.6566699</td><td>-63.66860477</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Iqaluit</td><td>-9.3</td><td>-26.9</td><td>-27.5</td><td>-23.2</td><td>-14.2</td><td>-4.4</td><td>3.6</td><td>8.2</td><td>7.1</td><td>2.6</td><td>-3.7</td><td>-12</td><td>-21.3</td><td>63.74620404</td><td>-68.5357685</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Moncton</td><td>6.1</td><td>-8.2</td><td>-7</td><td>-2.3</td><td>4.2</td><td>10.7</td><td>16</td><td>19.5</td><td>19</td><td>14.5</td><td>8.3</td><td>2.5</td><td>-4.3</td><td>46.09157099</td><td>-64.77553971</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Montreal</td><td>6.8</td><td>-9.7</td><td>-7.7</td><td>-2</td><td>6.4</td><td>13.4</td><td>18.6</td><td>21.2</td><td>20.1</td><td>15.5</td><td>8.5</td><td>2.1</td><td>-5.4</td><td>45.53399954</td><td>-73.59738093</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Ottawa</td><td>6.6</td><td>-10.2</td><td>-7.9</td><td>-2.2</td><td>6.5</td><td>13.5</td><td>18.7</td><td>21.2</td><td>19.9</td><td>15.3</td><td>8.4</td><td>2</td><td>-5.6</td><td>45.43706753</td><td>-75.64372914</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Saskatoon</td><td>3.3</td><td>-13.9</td><td>-11.4</td><td>-4.9</td><td>5.2</td><td>11.8</td><td>16.1</td><td>19</td><td>18.2</td><td>12</td><td>4.4</td><td>-5.2</td><td>-12.4</td><td>52.15671038</td><td>-106.6754029</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>St. John's</td><td>5</td><td>-4.5</td><td>-4.9</td><td>-2.6</td><td>1.9</td><td>6.4</td><td>10.9</td><td>15.8</td><td>16.1</td><td>12.4</td><td>7.4</td><td>3</td><td>-1.5</td><td>47.55658974</td><td>-52.72040234</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Toronto</td><td>9.4</td><td>-3.7</td><td>-2.6</td><td>1.4</td><td>7.9</td><td>14.1</td><td>19.4</td><td>22.3</td><td>21.5</td><td>17.2</td><td>10.7</td><td>4.9</td><td>-0.5</td><td>43.72299464</td><td>-79.35343673</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Vancouver</td><td>10.4</td><td>4.1</td><td>4.9</td><td>6.9</td><td>9.4</td><td>12.8</td><td>15.7</td><td>18</td><td>18</td><td>14.9</td><td>10.3</td><td>6.3</td><td>3.6</td><td>49.32323062</td><td>-123.014537</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Winnipeg</td><td>3</td><td>-16.4</td><td>-13.2</td><td>-5.8</td><td>4.4</td><td>11.6</td><td>17</td><td>19.7</td><td>18.8</td><td>12.7</td><td>5</td><td>-4.9</td><td>-13.2</td><td>49.93949636</td><td>-96.97733318</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Whitehorse</td><td>-0.1</td><td>-15.2</td><td>-12.7</td><td>-6.3</td><td>1</td><td>7.3</td><td>12.3</td><td>14.3</td><td>12.6</td><td>7.2</td><td>0.5</td><td>-9.4</td><td>-12.5</td><td>60.72520999</td><td>-135.0571173</td></tr>
+    <tr><td>North America</td><td>Canada</td><td>Yellowknife</td><td>-4.3</td><td>-25.6</td><td>-22.9</td><td>-16.8</td><td>-5.3</td><td>4.6</td><td>13.3</td><td>17</td><td>14.2</td><td>7.2</td><td>-1.7</td><td>-13.7</td><td>-21.8</td><td>62.46428502</td><td>-114.3916728</td></tr>
+    <tr><td>North America</td><td>Cayman Islands</td><td>George Town</td><td>27.9</td><td>25.8</td><td>26.1</td><td>26.6</td><td>27.6</td><td>28.5</td><td>29.2</td><td>29.6</td><td>29.7</td><td>29.3</td><td>28.5</td><td>27.5</td><td>26.2</td><td>19.28674876</td><td>-81.36606709</td></tr>
+    <tr><td>North America</td><td>Costa Rica</td><td>San José</td><td>22.6</td><td>22.6</td><td>23</td><td>23.5</td><td>23.7</td><td>22.9</td><td>22.5</td><td>22.6</td><td>22.4</td><td>22</td><td>21.8</td><td>21.9</td><td>22.3</td><td>9.929499188</td><td>-84.10974005</td></tr>
+    <tr><td>North America</td><td>Cuba</td><td>Havana</td><td>25.2</td><td>22.2</td><td>22.4</td><td>23.7</td><td>24.8</td><td>26.1</td><td>27</td><td>27.6</td><td>27.9</td><td>27.4</td><td>26.1</td><td>24.5</td><td>23</td><td>23.11442398</td><td>-82.36802974</td></tr>
+    <tr><td>North America</td><td>Curaçao</td><td>Willemstad</td><td>28</td><td>26.6</td><td>26.7</td><td>27.2</td><td>27.8</td><td>28.4</td><td>28.6</td><td>28.5</td><td>28.9</td><td>29.1</td><td>28.6</td><td>28</td><td>27.2</td><td>12.1240744</td><td>-68.87860406</td></tr>
+    <tr><td>North America</td><td>Dominica</td><td>Roseau</td><td>26.2</td><td>24.9</td><td>24.8</td><td>25.1</td><td>25.8</td><td>26.6</td><td>27.3</td><td>27.4</td><td>27.4</td><td>27.1</td><td>26.1</td><td>26.2</td><td>25.4</td><td>15.30816547</td><td>-61.37733536</td></tr>
+    <tr><td>North America</td><td>Dominican Republic</td><td>Santo Domingo</td><td>25.9</td><td>24.4</td><td>24.4</td><td>24.9</td><td>25.6</td><td>26.3</td><td>26.9</td><td>27</td><td>27.1</td><td>27</td><td>26.7</td><td>26</td><td>24.9</td><td>18.51038895</td><td>-69.91559419</td></tr>
+    <tr><td>North America</td><td>Greenland</td><td>Nuuk</td><td>-1.4</td><td>-7.4</td><td>-7.8</td><td>-8</td><td>-3.8</td><td>0.6</td><td>3.9</td><td>6.5</td><td>6.1</td><td>3.5</td><td>-0.7</td><td>-3.7</td><td>-6.2</td><td>64.1806279</td><td>-51.68659881</td></tr>
+    <tr><td>North America</td><td>Honduras</td><td>La Ceiba</td><td>26.2</td><td>23.8</td><td>24</td><td>25.6</td><td>26.8</td><td>28.2</td><td>28</td><td>27.5</td><td>27.6</td><td>27.4</td><td>26.2</td><td>25.2</td><td>24.3</td><td>15.76676911</td><td>-86.78463812</td></tr>
+    <tr><td>North America</td><td>Honduras</td><td>Tegucigalpa</td><td>21.7</td><td>19.5</td><td>20.4</td><td>22.1</td><td>23.4</td><td>23.6</td><td>22.6</td><td>22.1</td><td>22.4</td><td>22.2</td><td>21.5</td><td>20.4</td><td>19.7</td><td>14.06325826</td><td>-87.17888244</td></tr>
+    <tr><td>North America</td><td>Jamaica</td><td>Kingston</td><td>27.4</td><td>25.8</td><td>25.9</td><td>26.4</td><td>26.9</td><td>27.8</td><td>28.5</td><td>28.9</td><td>28.7</td><td>28.4</td><td>27.7</td><td>27.2</td><td>26.7</td><td>18.00753739</td><td>-76.7888288</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Cabo San Lucas</td><td>23.9</td><td>19.2</td><td>19.3</td><td>20.2</td><td>22.2</td><td>23.8</td><td>25.3</td><td>28.1</td><td>29</td><td>28.4</td><td>26.7</td><td>23.5</td><td>20.6</td><td>22.89037129</td><td>-109.9156608</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Chihuahua</td><td>18.6</td><td>10</td><td>12.9</td><td>15.7</td><td>19.2</td><td>23.6</td><td>26.3</td><td>25.6</td><td>24.3</td><td>22.6</td><td>18.7</td><td>13.7</td><td>10.3</td><td>28.64416831</td><td>-106.0435408</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Guadalajara</td><td>20.9</td><td>17.1</td><td>18.4</td><td>20.7</td><td>22.8</td><td>24.5</td><td>23.9</td><td>22</td><td>21.9</td><td>21.8</td><td>21</td><td>19.2</td><td>17.5</td><td>20.66060734</td><td>-103.3391919</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>La Paz</td><td>23.7</td><td>17.4</td><td>18.1</td><td>19.7</td><td>22.1</td><td>24.5</td><td>27.1</td><td>29.7</td><td>30.2</td><td>29.3</td><td>26.2</td><td>22</td><td>18.6</td><td>20.64713484</td><td>-103.3081963</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Mexicali</td><td>23.1</td><td>13.1</td><td>15.3</td><td>18</td><td>21.3</td><td>25.8</td><td>30.5</td><td>33.9</td><td>33.5</td><td>30.4</td><td>24.3</td><td>17.5</td><td>13.1</td><td>32.62241436</td><td>-115.4520096</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Mexico City</td><td>17.5</td><td>14.6</td><td>15.9</td><td>18.1</td><td>19.6</td><td>20</td><td>19.4</td><td>18.2</td><td>18.3</td><td>18</td><td>17.1</td><td>16.3</td><td>15</td><td>19.43556701</td><td>-99.10590694</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Monterrey</td><td>22.3</td><td>14.4</td><td>16.6</td><td>20</td><td>23.4</td><td>26.2</td><td>27.9</td><td>28.6</td><td>28.5</td><td>26.2</td><td>22.4</td><td>18.4</td><td>15.1</td><td>25.66482072</td><td>-100.2825054</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Tijuana</td><td>17.8</td><td>13.6</td><td>14.3</td><td>14.8</td><td>16.1</td><td>18</td><td>19.8</td><td>22.2</td><td>22.8</td><td>22</td><td>19.5</td><td>16.6</td><td>14</td><td>32.51289601</td><td>-117.0405122</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Toluca</td><td>12.4</td><td>8.9</td><td>10.1</td><td>11.8</td><td>13.5</td><td>14.7</td><td>14.8</td><td>14</td><td>14</td><td>13.9</td><td>12.4</td><td>10.8</td><td>9.5</td><td>19.28405346</td><td>-99.65215846</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Veracruz</td><td>25.4</td><td>21.5</td><td>21.9</td><td>24</td><td>25.8</td><td>27.8</td><td>28.1</td><td>27.5</td><td>27.6</td><td>27.2</td><td>26.2</td><td>24.2</td><td>22.6</td><td>19.17233337</td><td>-96.12939839</td></tr>
+    <tr><td>North America</td><td>Mexico</td><td>Villahermosa</td><td>27.1</td><td>23.6</td><td>24.5</td><td>26.6</td><td>28.5</td><td>29.6</td><td>29.3</td><td>28.9</td><td>28.9</td><td>28.4</td><td>27.1</td><td>25.7</td><td>24.1</td><td>18.02750375</td><td>-92.89205619</td></tr>
+    <tr><td>North America</td><td>Nicaragua</td><td>Managua</td><td>27.3</td><td>26.3</td><td>27.2</td><td>28.5</td><td>29.3</td><td>29.3</td><td>27.2</td><td>26.8</td><td>27.2</td><td>26.8</td><td>26.5</td><td>26.3</td><td>26.2</td><td>12.11544164</td><td>-86.23202703</td></tr>
+    <tr><td>North America</td><td>Panama</td><td>Panama City</td><td>28</td><td>28</td><td>28</td><td>28</td><td>28</td><td>28</td><td>27</td><td>27</td><td>27</td><td>27</td><td>27</td><td>27</td><td>27</td><td>9.010798284</td><td>-79.52370279</td></tr>
+    <tr><td>North America</td><td>El Salvador</td><td>San Salvador</td><td>23.1</td><td>22.2</td><td>22.8</td><td>23.8</td><td>24.5</td><td>24.2</td><td>23.3</td><td>23.3</td><td>23.2</td><td>22.8</td><td>22.8</td><td>22.4</td><td>22</td><td>13.7062827</td><td>-89.16914219</td></tr>
+    <tr><td>North America</td><td>Puerto Rico</td><td>San Juan</td><td>27.2</td><td>25.3</td><td>25.5</td><td>26.1</td><td>26.8</td><td>27.7</td><td>28.5</td><td>28.6</td><td>28.7</td><td>28.6</td><td>28.1</td><td>27</td><td>24.8</td><td>18.46892534</td><td>-66.1125127</td></tr>
+    <tr><td>North America</td><td>Saint Pierre and Miquelon</td><td>Saint-Pierre</td><td>5.7</td><td>-2.6</td><td>-3.2</td><td>-1.4</td><td>2</td><td>5.6</td><td>9.6</td><td>14.1</td><td>16.2</td><td>13.5</td><td>8.9</td><td>4.5</td><td>0.4</td><td>47.05042287</td><td>-56.34631038</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Albuquerque</td><td>14</td><td>2.4</td><td>5.2</td><td>8.9</td><td>13.3</td><td>18.7</td><td>23.8</td><td>25.7</td><td>24.6</td><td>20.7</td><td>14.2</td><td>7.2</td><td>2.4</td><td>35.08513883</td><td>-106.6435284</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Anchorage</td><td>2.8</td><td>-8.3</td><td>-6.6</td><td>-3</td><td>2.7</td><td>8.8</td><td>12.9</td><td>14.9</td><td>13.7</td><td>9.2</td><td>1.6</td><td>-5.4</td><td>-7.2</td><td>61.26764829</td><td>-149.7871654</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Atlanta</td><td>17</td><td>6.4</td><td>8.6</td><td>12.6</td><td>16.7</td><td>21.3</td><td>25.2</td><td>26.9</td><td>26.4</td><td>23.1</td><td>17.4</td><td>12.3</td><td>7.5</td><td>33.74913989</td><td>-84.38730365</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Austin</td><td>20.7</td><td>10.8</td><td>12.8</td><td>16.5</td><td>20.7</td><td>24.8</td><td>27.9</td><td>29.4</td><td>29.9</td><td>26.7</td><td>21.8</td><td>16.1</td><td>11.4</td><td>30.31067686</td><td>-97.64613625</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Baltimore</td><td>13.1</td><td>0.8</td><td>2.4</td><td>6.8</td><td>12.4</td><td>17.6</td><td>22.8</td><td>25.3</td><td>24.3</td><td>20.2</td><td>13.7</td><td>8.3</td><td>2.9</td><td>39.84805108</td><td>-82.60227229</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Boise</td><td>11.4</td><td>-0.4</td><td>2.5</td><td>6.9</td><td>10.4</td><td>15.1</td><td>19.7</td><td>24.3</td><td>23.7</td><td>18.3</td><td>11.6</td><td>4.4</td><td>-0.7</td><td>43.60973438</td><td>-116.1827447</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Boston</td><td>10.9</td><td>-1.5</td><td>0</td><td>3.7</td><td>9.1</td><td>14.6</td><td>20</td><td>23.2</td><td>22.4</td><td>18.4</td><td>12.4</td><td>7.2</td><td>1.7</td><td>42.37584026</td><td>-71.04824151</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Charlotte</td><td>16.1</td><td>5.1</td><td>7.2</td><td>11.3</td><td>15.8</td><td>20.3</td><td>24.7</td><td>26.4</td><td>25.8</td><td>22.2</td><td>16.3</td><td>11.1</td><td>6.3</td><td>35.21148838</td><td>-80.81992414</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Chicago</td><td>9.8</td><td>-4.6</td><td>-2.4</td><td>3.2</td><td>9.4</td><td>15</td><td>20.5</td><td>23.3</td><td>22.4</td><td>18.1</td><td>11.4</td><td>4.6</td><td>-2.4</td><td>41.88263541</td><td>-87.62601212</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Columbus</td><td>11.7</td><td>-1.6</td><td>0.2</td><td>5.3</td><td>11.5</td><td>16.8</td><td>21.8</td><td>23.8</td><td>23.1</td><td>19.1</td><td>12.6</td><td>6.7</td><td>0.6</td><td>39.96918633</td><td>-82.95101103</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Dallas</td><td>19</td><td>7.7</td><td>9.9</td><td>14.2</td><td>18.6</td><td>23.3</td><td>27.4</td><td>29.7</td><td>29.8</td><td>25.6</td><td>19.8</td><td>13.7</td><td>8.4</td><td>32.7870622</td><td>-96.80762216</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Denver</td><td>10.4</td><td>-0.3</td><td>0.8</td><td>4.8</td><td>8.9</td><td>14.2</td><td>19.7</td><td>23.4</td><td>22.3</td><td>17.3</td><td>10.4</td><td>3.8</td><td>-0.9</td><td>39.77706813</td><td>-104.964298</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Detroit</td><td>10</td><td>-3.7</td><td>-2.3</td><td>2.7</td><td>9.4</td><td>15.2</td><td>20.7</td><td>23</td><td>22.1</td><td>17.9</td><td>11.2</td><td>5.2</td><td>-1.2</td><td>42.33232489</td><td>-83.03878743</td></tr>
+    <tr><td>North America</td><td>United States</td><td>El Paso</td><td>18.1</td><td>7.3</td><td>10.1</td><td>13.7</td><td>18.2</td><td>23.3</td><td>27.7</td><td>28.2</td><td>27.3</td><td>24.1</td><td>18.4</td><td>11.7</td><td>7.2</td><td>31.79705117</td><td>-106.4588579</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Fairbanks</td><td>-2.3</td><td>-21.9</td><td>-18.3</td><td>-11.2</td><td>0.5</td><td>9.9</td><td>16</td><td>17.1</td><td>13.6</td><td>7.3</td><td>-4.2</td><td>-16.2</td><td>-19.8</td><td>64.83851844</td><td>-147.701966</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Fresno</td><td>17.9</td><td>8.1</td><td>10.8</td><td>13.7</td><td>16.7</td><td>21.2</td><td>25.1</td><td>28.3</td><td>27.6</td><td>24.6</td><td>19</td><td>12.4</td><td>8.1</td><td>36.7375931</td><td>-119.7883894</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Houston</td><td>20.8</td><td>11.5</td><td>13.3</td><td>16.9</td><td>20.7</td><td>24.8</td><td>27.7</td><td>28.9</td><td>29</td><td>26.3</td><td>21.7</td><td>16.6</td><td>12.3</td><td>29.77159548</td><td>-95.36561939</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Indianapolis</td><td>11.8</td><td>-2.2</td><td>0.1</td><td>5.7</td><td>11.8</td><td>17.2</td><td>22.3</td><td>24.2</td><td>23.5</td><td>19.5</td><td>12.9</td><td>6.6</td><td>-0.1</td><td>39.77600635</td><td>-86.15267021</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Jacksonville</td><td>20.3</td><td>11.7</td><td>13.6</td><td>16.5</td><td>19.4</td><td>23.4</td><td>26.7</td><td>27.9</td><td>27.6</td><td>25.7</td><td>21.3</td><td>16.8</td><td>12.9</td><td>30.38188973</td><td>-81.61690453</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Kansas City</td><td>12.5</td><td>-1.8</td><td>0.8</td><td>6.8</td><td>12.7</td><td>18.1</td><td>23.1</td><td>25.7</td><td>25</td><td>20.1</td><td>13.5</td><td>6.4</td><td>-0.3</td><td>39.08600588</td><td>-94.58753049</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Las Vegas</td><td>20.3</td><td>8.8</td><td>11.1</td><td>15</td><td>19.1</td><td>24.7</td><td>29.9</td><td>33.2</td><td>32.1</td><td>27.6</td><td>20.4</td><td>13.1</td><td>8.2</td><td>36.19694515</td><td>-115.1285883</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Lake Havasu City</td><td>23.7</td><td>12.2</td><td>14.6</td><td>18.1</td><td>22.4</td><td>27.9</td><td>32.7</td><td>36.1</td><td>35.5</td><td>31.3</td><td>24.1</td><td>17</td><td>11.7</td><td>34.48979622</td><td>-114.2717436</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Los Angeles</td><td>18.6</td><td>14.4</td><td>14.9</td><td>15.9</td><td>17.3</td><td>18.8</td><td>20.7</td><td>22.9</td><td>23.5</td><td>22.8</td><td>20.3</td><td>16.9</td><td>14.2</td><td>34.05771497</td><td>-118.2510895</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Louisville</td><td>13.9</td><td>1.1</td><td>3.3</td><td>8.3</td><td>13.9</td><td>18.9</td><td>23.7</td><td>25.7</td><td>25.2</td><td>21.1</td><td>14.8</td><td>8.7</td><td>2.7</td><td>38.21030615</td><td>-85.66029865</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Memphis</td><td>17.2</td><td>5.2</td><td>7.5</td><td>12.2</td><td>17.2</td><td>22.1</td><td>26.4</td><td>28.2</td><td>27.8</td><td>24</td><td>17.8</td><td>11.8</td><td>6.4</td><td>35.19550007</td><td>-90.00604387</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Miami</td><td>24.9</td><td>19.9</td><td>21.1</td><td>22.4</td><td>24.2</td><td>26.5</td><td>28.1</td><td>28.8</td><td>28.9</td><td>28.2</td><td>26.4</td><td>23.7</td><td>21.2</td><td>25.76353134</td><td>-80.1916951</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Milwaukee</td><td>8.9</td><td>-5.2</td><td>-3.2</td><td>1.9</td><td>7.8</td><td>13.3</td><td>19.2</td><td>22.3</td><td>21.7</td><td>17.4</td><td>10.9</td><td>4.1</td><td>-2.9</td><td>43.06181957</td><td>-87.92280525</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Minneapolis</td><td>7.8</td><td>-9.1</td><td>-6.2</td><td>0.4</td><td>8.6</td><td>15.1</td><td>20.4</td><td>23.2</td><td>21.7</td><td>16.7</td><td>9.4</td><td>0.9</td><td>-6.8</td><td>44.96217382</td><td>-93.25427047</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Nashville</td><td>15.4</td><td>3.4</td><td>5.7</td><td>10.3</td><td>15.3</td><td>20</td><td>24.6</td><td>26.6</td><td>26.2</td><td>22.2</td><td>16</td><td>10.2</td><td>4.9</td><td>36.17949986</td><td>-86.73187472</td></tr>
+    <tr><td>North America</td><td>United States</td><td>New Orleans</td><td>20.7</td><td>11.6</td><td>13.4</td><td>16.8</td><td>20.3</td><td>24.6</td><td>27.2</td><td>28.2</td><td>28.2</td><td>26.2</td><td>21.6</td><td>16.8</td><td>12.9</td><td>30.00239552</td><td>-90.05588763</td></tr>
+    <tr><td>North America</td><td>United States</td><td>New York City</td><td>12.9</td><td>0.6</td><td>2.1</td><td>6.1</td><td>11.9</td><td>17.1</td><td>22.1</td><td>24.9</td><td>24.3</td><td>20.2</td><td>14.1</td><td>8.9</td><td>3.3</td><td>40.71406025</td><td>-73.99136138</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Oklahoma City</td><td>15.9</td><td>3.6</td><td>6.1</td><td>10.7</td><td>15.6</td><td>20.6</td><td>25.1</td><td>27.8</td><td>27.6</td><td>22.8</td><td>16.5</td><td>9.9</td><td>4.3</td><td>35.5000854</td><td>-97.47806644</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Omaha</td><td>10.6</td><td>-4.6</td><td>-2.1</td><td>4.2</td><td>10.9</td><td>16.9</td><td>22.3</td><td>24.8</td><td>23.7</td><td>18.8</td><td>11.8</td><td>3.8</td><td>-3.3</td><td>41.28757254</td><td>-95.91772001</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Palm Springs</td><td>24.5</td><td>16.3</td><td>18.1</td><td>20.7</td><td>23.7</td><td>26.8</td><td>30.7</td><td>33.8</td><td>33.6</td><td>30.5</td><td>24.9</td><td>19.2</td><td>15.7</td><td>33.86246185</td><td>-116.5502168</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Philadelphia</td><td>13.2</td><td>0.5</td><td>2</td><td>6.4</td><td>12.2</td><td>17.7</td><td>22.9</td><td>25.6</td><td>24.7</td><td>20.6</td><td>14.2</td><td>8.7</td><td>3</td><td>39.99802044</td><td>-75.17752696</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Phoenix</td><td>23.9</td><td>13.6</td><td>15.4</td><td>18.5</td><td>22.7</td><td>27.8</td><td>32.7</td><td>34.9</td><td>34.2</td><td>31.3</td><td>24.8</td><td>17.9</td><td>13.1</td><td>33.45628022</td><td>-112.0660317</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Pittsburgh</td><td>10.8</td><td>-1.9</td><td>-0.4</td><td>4.3</td><td>10.6</td><td>15.7</td><td>20.5</td><td>22.7</td><td>22</td><td>17.9</td><td>11.6</td><td>6.2</td><td>0.3</td><td>40.44023201</td><td>-79.99526524</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Portland</td><td>12.4</td><td>5.2</td><td>6.6</td><td>8.9</td><td>11.3</td><td>14.6</td><td>17.6</td><td>20.7</td><td>20.9</td><td>18.1</td><td>12.7</td><td>8.1</td><td>4.7</td><td>45.50414136</td><td>-122.6797399</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Sacramento</td><td>16.3</td><td>8.1</td><td>10.6</td><td>12.7</td><td>15</td><td>18.8</td><td>22.1</td><td>24.2</td><td>23.8</td><td>22.1</td><td>17.9</td><td>11.9</td><td>8</td><td>38.5778411</td><td>-121.4015386</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Salt Lake City</td><td>11.6</td><td>-1.3</td><td>1.3</td><td>6.6</td><td>10.4</td><td>15.5</td><td>21.1</td><td>26.1</td><td>25.1</td><td>19.1</td><td>11.8</td><td>4.6</td><td>-0.8</td><td>40.76092231</td><td>-111.8882201</td></tr>
+    <tr><td>North America</td><td>United States</td><td>San Antonio</td><td>20.8</td><td>11</td><td>13.1</td><td>16.8</td><td>20.8</td><td>25</td><td>28.1</td><td>29.3</td><td>29.7</td><td>26.6</td><td>21.8</td><td>16.2</td><td>11.6</td><td>29.43330688</td><td>-98.41418782</td></tr>
+    <tr><td>North America</td><td>United States</td><td>San Diego</td><td>17.8</td><td>14.2</td><td>14.7</td><td>15.5</td><td>16.8</td><td>18.1</td><td>19.4</td><td>21.4</td><td>22.2</td><td>21.7</td><td>19.6</td><td>16.6</td><td>13.9</td><td>32.71800654</td><td>-117.1694358</td></tr>
+    <tr><td>North America</td><td>United States</td><td>San Francisco</td><td>14.6</td><td>11.2</td><td>12.6</td><td>13.3</td><td>13.9</td><td>14.7</td><td>15.8</td><td>16.3</td><td>16.9</td><td>17.5</td><td>16.8</td><td>14.1</td><td>11.4</td><td>37.7859104</td><td>-122.4196817</td></tr>
+    <tr><td>North America</td><td>United States</td><td>San Jose</td><td>16.4</td><td>10.8</td><td>12.5</td><td>13.8</td><td>15.2</td><td>17.8</td><td>20.2</td><td>21.6</td><td>21.8</td><td>20.7</td><td>17.9</td><td>13.9</td><td>10.6</td><td>37.34374042</td><td>-121.903938</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Seattle</td><td>11.3</td><td>5.4</td><td>6.2</td><td>7.9</td><td>10.1</td><td>13.2</td><td>15.9</td><td>18.6</td><td>18.8</td><td>16.2</td><td>11.4</td><td>7.4</td><td>4.7</td><td>47.60692525</td><td>-122.3386379</td></tr>
+    <tr><td>North America</td><td>United States</td><td>St. Louis</td><td>13.9</td><td>-0.1</td><td>2.4</td><td>7.9</td><td>14.1</td><td>19.3</td><td>24.4</td><td>26.7</td><td>25.9</td><td>21.3</td><td>14.8</td><td>8.2</td><td>1.6</td><td>38.64390043</td><td>-90.22905005</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Tampa</td><td>22.9</td><td>15.9</td><td>17.3</td><td>19.5</td><td>22.1</td><td>25.7</td><td>27.8</td><td>28.2</td><td>28.3</td><td>27.5</td><td>24.4</td><td>20.6</td><td>17.2</td><td>28.01076697</td><td>-82.39775662</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Tucson</td><td>20.9</td><td>11.6</td><td>13.1</td><td>15.8</td><td>19.7</td><td>24.6</td><td>29.6</td><td>30.8</td><td>29.8</td><td>27.7</td><td>21.9</td><td>15.6</td><td>11.3</td><td>32.20533354</td><td>-110.8811968</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Virginia Beach</td><td>15.8</td><td>4.9</td><td>6.1</td><td>9.8</td><td>14.8</td><td>19.4</td><td>24.3</td><td>26.7</td><td>25.7</td><td>22.6</td><td>16.9</td><td>11.8</td><td>6.9</td><td>36.88253841</td><td>-75.99617446</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Washington, D.C.</td><td>14.6</td><td>2.3</td><td>3.9</td><td>8.3</td><td>13.8</td><td>18.9</td><td>24.1</td><td>26.6</td><td>25.7</td><td>21.7</td><td>15.3</td><td>9.8</td><td>4.3</td><td>38.90522278</td><td>-77.03002742</td></tr>
+    <tr><td>North America</td><td>United States</td><td>Wichita</td><td>13.9</td><td>0.1</td><td>2.9</td><td>8.1</td><td>13.4</td><td>18.9</td><td>24.3</td><td>27.3</td><td>26.7</td><td>21.7</td><td>14.6</td><td>7.4</td><td>0.9</td><td>37.6971281</td><td>-97.3318331</td></tr>
+    <tr><td>Australia</td><td>Australia</td><td>Adelaide</td><td>17.3</td><td>23.2</td><td>23.3</td><td>20.9</td><td>17.6</td><td>13.5</td><td>12.1</td><td>11.4</td><td>12.4</td><td>14.4</td><td>16.7</td><td>19.7</td><td>21.3</td><td>-34.89012785</td><td>138.6660636</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Alice Springs</td><td>21</td><td>28</td><td>27</td><td>25</td><td>20</td><td>15</td><td>12</td><td>11</td><td>14</td><td>18</td><td>22</td><td>25</td><td>27</td><td>-23.70121229</td><td>133.8732683</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Brisbane</td><td>21.4</td><td>25.8</td><td>25.7</td><td>24.5</td><td>22.3</td><td>19.1</td><td>16.8</td><td>16</td><td>17</td><td>19.7</td><td>21.7</td><td>23.5</td><td>24.8</td><td>-27.40220568</td><td>153.126834</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Cairns</td><td>25</td><td>27</td><td>27</td><td>26</td><td>25</td><td>23</td><td>21</td><td>21</td><td>22</td><td>23</td><td>25</td><td>26</td><td>27</td><td>-16.93190433</td><td>145.7666599</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Canberra</td><td>13.1</td><td>20.6</td><td>20.1</td><td>17.6</td><td>13.4</td><td>9.4</td><td>6.7</td><td>5.7</td><td>7</td><td>9.8</td><td>12.8</td><td>15.8</td><td>18.8</td><td>-35.30889671</td><td>149.1645968</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Dampier</td><td>26.4</td><td>31</td><td>31.3</td><td>30.9</td><td>28.6</td><td>24.1</td><td>20.9</td><td>19.8</td><td>21.2</td><td>23.7</td><td>26.2</td><td>28.3</td><td>30.2</td><td>-20.66201468</td><td>116.7117142</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Darwin</td><td>27.6</td><td>28.3</td><td>28.1</td><td>28.3</td><td>28.4</td><td>27.1</td><td>25.3</td><td>25</td><td>25.9</td><td>27.8</td><td>29.1</td><td>29.3</td><td>29</td><td>-12.45387615</td><td>130.8655749</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Hobart</td><td>12.7</td><td>16.8</td><td>16.9</td><td>15.6</td><td>13.2</td><td>10.8</td><td>8.6</td><td>8.2</td><td>9.2</td><td>10.8</td><td>12.4</td><td>14</td><td>15.6</td><td>-42.88197735</td><td>147.3419301</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Melbourne</td><td>15.1</td><td>20.1</td><td>20.2</td><td>18.6</td><td>15.6</td><td>12.7</td><td>10.5</td><td>9.8</td><td>10.9</td><td>12.7</td><td>14.7</td><td>16.6</td><td>18.6</td><td>-37.73532451</td><td>144.9863076</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Perth</td><td>18.7</td><td>24.5</td><td>24.9</td><td>23.1</td><td>19.7</td><td>16.5</td><td>14</td><td>13</td><td>13.5</td><td>14.8</td><td>17.3</td><td>20.3</td><td>22.7</td><td>-31.94977773</td><td>115.8668189</td></tr>
+    <tr><td>Oceania</td><td>Australia</td><td>Sydney</td><td>17.7</td><td>22.3</td><td>22.3</td><td>21.2</td><td>18.5</td><td>15.5</td><td>13.1</td><td>12.2</td><td>13.4</td><td>15.5</td><td>17.8</td><td>19.6</td><td>21.3</td><td>-33.8335391</td><td>151.2408595</td></tr>
+    <tr><td>Oceania</td><td>Fiji</td><td>Suva</td><td>25.6</td><td>27.4</td><td>27.6</td><td>26.4</td><td>26.6</td><td>25.4</td><td>24.6</td><td>23.8</td><td>23.7</td><td>24.1</td><td>25.1</td><td>26.1</td><td>26.9</td><td>-18.13275171</td><td>178.4435901</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Auckland</td><td>15.2</td><td>19.1</td><td>19.7</td><td>18.4</td><td>16.1</td><td>14</td><td>11.8</td><td>10.9</td><td>11.3</td><td>12.7</td><td>14.2</td><td>15.7</td><td>17.8</td><td>-36.85862986</td><td>174.7610459</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Christchurch</td><td>12.2</td><td>17.5</td><td>17.2</td><td>15.5</td><td>12.7</td><td>9.8</td><td>7.1</td><td>6.6</td><td>7.9</td><td>10.3</td><td>12.2</td><td>14.1</td><td>16.1</td><td>-43.49410568</td><td>172.6875872</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Dunedin</td><td>11.1</td><td>15.3</td><td>15</td><td>13.7</td><td>11.7</td><td>9.3</td><td>7.3</td><td>6.6</td><td>7.7</td><td>9.5</td><td>10.9</td><td>12.4</td><td>13.9</td><td>-45.86980897</td><td>170.4739816</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Hamilton</td><td>13.8</td><td>18.4</td><td>18.8</td><td>17.1</td><td>14.5</td><td>11.9</td><td>9.5</td><td>8.9</td><td>9.8</td><td>11.6</td><td>13.2</td><td>14.9</td><td>16.9</td><td>-37.78105651</td><td>175.2415219</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Lake Tekapo</td><td>8.7</td><td>15.2</td><td>14.8</td><td>12.4</td><td>9.2</td><td>5.9</td><td>2.6</td><td>1.4</td><td>3.6</td><td>6.5</td><td>8.8</td><td>11.1</td><td>13.2</td><td>-44.00653911</td><td>170.4719601</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Napier</td><td>14.6</td><td>19.5</td><td>19.4</td><td>17.7</td><td>15</td><td>12.4</td><td>10</td><td>9.4</td><td>10.3</td><td>12.3</td><td>14.3</td><td>16.1</td><td>18.4</td><td>-39.46946348</td><td>176.8828152</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Palmerston North</td><td>13.2</td><td>17.8</td><td>18.3</td><td>16.4</td><td>13.6</td><td>11.4</td><td>9.1</td><td>8.6</td><td>9.2</td><td>11</td><td>12.4</td><td>13.8</td><td>16.2</td><td>-40.1168039</td><td>175.7146248</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Tauranga</td><td>14.8</td><td>19.4</td><td>19.6</td><td>18</td><td>15.5</td><td>13.2</td><td>10.8</td><td>10.2</td><td>10.7</td><td>12.3</td><td>13.9</td><td>15.8</td><td>18</td><td>-37.74504133</td><td>176.1308804</td></tr>
+    <tr><td>Oceania</td><td>New Zealand</td><td>Wellington</td><td>12.9</td><td>16.9</td><td>17.2</td><td>15.8</td><td>13.7</td><td>11.7</td><td>9.7</td><td>8.9</td><td>9.4</td><td>10.8</td><td>12</td><td>13.5</td><td>15.4</td><td>-41.25703288</td><td>174.8756384</td></tr>
+    <tr><td>Oceania</td><td>Papua New Guinea</td><td>Port Moresby</td><td>26.9</td><td>27.4</td><td>27.3</td><td>27.1</td><td>27</td><td>26.9</td><td>26.1</td><td>25.7</td><td>26.1</td><td>26.5</td><td>27.5</td><td>27.6</td><td>27.8</td><td>-9.445889673</td><td>147.1891223</td></tr>
+    <tr><td>Oceania</td><td>Solomon Islands</td><td>Honiara</td><td>26.5</td><td>26.7</td><td>26.6</td><td>26.6</td><td>26.5</td><td>26.6</td><td>26.4</td><td>26.1</td><td>26.2</td><td>26.5</td><td>26.5</td><td>26.7</td><td>26.8</td><td>-9.444819058</td><td>159.9691696</td></tr>
+    <tr><td>Oceania</td><td>Vanuatu</td><td>Port Vila</td><td>24.3</td><td>26.4</td><td>26.5</td><td>26.3</td><td>25.3</td><td>24.1</td><td>23</td><td>22.1</td><td>22</td><td>22.7</td><td>23.4</td><td>24.6</td><td>25.7</td><td>-17.73285261</td><td>168.3243932</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Bahía Blanca</td><td>15.3</td><td>23.6</td><td>22.1</td><td>19.4</td><td>14.9</td><td>11.1</td><td>8.1</td><td>7.5</td><td>9.4</td><td>11.6</td><td>15.1</td><td>18.7</td><td>22</td><td>-38.71745852</td><td>-62.26392719</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Bariloche</td><td>8.3</td><td>15</td><td>14.8</td><td>11.9</td><td>7.9</td><td>4.9</td><td>2.9</td><td>2.1</td><td>3</td><td>5.1</td><td>8</td><td>10.8</td><td>13.5</td><td>-41.0694228</td><td>-71.25958675</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Buenos Aires</td><td>17.9</td><td>24.9</td><td>23.6</td><td>21.9</td><td>17.9</td><td>14.5</td><td>11.7</td><td>11</td><td>12.8</td><td>14.6</td><td>17.9</td><td>20.7</td><td>23.3</td><td>-34.55390853</td><td>-58.44906465</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Comodoro Rivadavia</td><td>13</td><td>19.7</td><td>18.8</td><td>16.3</td><td>13.1</td><td>9.6</td><td>6.9</td><td>6.6</td><td>7.9</td><td>10.1</td><td>13</td><td>15.9</td><td>18.2</td><td>-34.68382048</td><td>-58.34694593</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Córdoba</td><td>18.2</td><td>24.9</td><td>23.1</td><td>21.7</td><td>18</td><td>14.5</td><td>11.4</td><td>10.8</td><td>13.3</td><td>15.7</td><td>19.5</td><td>21.8</td><td>23.7</td><td>-31.39763006</td><td>-64.11141518</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Mar del Plata</td><td>13.9</td><td>20.4</td><td>19.8</td><td>18.2</td><td>14.5</td><td>11.2</td><td>8.4</td><td>7.5</td><td>8.8</td><td>10.4</td><td>13.3</td><td>15.9</td><td>18.5</td><td>-38.05351052</td><td>-57.55624708</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Mendoza</td><td>17.1</td><td>25.5</td><td>24</td><td>21.3</td><td>16.2</td><td>11.8</td><td>8.4</td><td>7.9</td><td>10.6</td><td>13.9</td><td>18.8</td><td>22.2</td><td>24.9</td><td>-32.79451238</td><td>-68.796592</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Neuquén</td><td>14.7</td><td>23.7</td><td>22.3</td><td>18.9</td><td>13.4</td><td>9.2</td><td>6.6</td><td>5.8</td><td>8.1</td><td>11.4</td><td>15.6</td><td>19.4</td><td>22.4</td><td>-38.95397995</td><td>-68.09769368</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Resistencia</td><td>21.1</td><td>26.8</td><td>25.9</td><td>24.6</td><td>21.2</td><td>17.6</td><td>15.4</td><td>14.8</td><td>16.7</td><td>18.5</td><td>21.8</td><td>23.6</td><td>25.8</td><td>-27.41484133</td><td>-58.94305781</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Río Gallegos</td><td>7.8</td><td>13.8</td><td>13.2</td><td>10.8</td><td>7.6</td><td>4.2</td><td>1.4</td><td>1.2</td><td>3.1</td><td>5.7</td><td>8.4</td><td>11.1</td><td>12.8</td><td>-51.62236177</td><td>-69.23953671</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Rosario</td><td>17.5</td><td>24.6</td><td>23.2</td><td>21.4</td><td>17.3</td><td>13.8</td><td>10.7</td><td>10</td><td>12.1</td><td>14.5</td><td>18.1</td><td>21</td><td>23.4</td><td>-32.94343322</td><td>-60.64407875</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Salta</td><td>16.7</td><td>21.4</td><td>20.3</td><td>19.5</td><td>16.6</td><td>13.1</td><td>10.6</td><td>10.1</td><td>12.7</td><td>15.1</td><td>19.1</td><td>20.5</td><td>21.5</td><td>-24.73180337</td><td>-65.44866922</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>San Juan</td><td>17.9</td><td>27.1</td><td>25.5</td><td>22.8</td><td>17.2</td><td>12.2</td><td>8.3</td><td>7.7</td><td>10.6</td><td>14.4</td><td>19.8</td><td>23.4</td><td>26.3</td><td>-32.94312623</td><td>-60.66535974</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>San Miguel de Tucumán</td><td>19.5</td><td>25.2</td><td>24</td><td>22.6</td><td>19.2</td><td>15.7</td><td>12.7</td><td>12.2</td><td>14.9</td><td>17.8</td><td>21.8</td><td>23.4</td><td>24.9</td><td>-26.81047544</td><td>-65.20989265</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Santiago del Estero</td><td>20.4</td><td>26.7</td><td>25.5</td><td>23.8</td><td>19.8</td><td>16.1</td><td>12.7</td><td>12.2</td><td>15.3</td><td>18.5</td><td>22.7</td><td>24.8</td><td>26.5</td><td>-27.73325597</td><td>-64.30693823</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Ushuaia</td><td>5.7</td><td>9.6</td><td>9.3</td><td>7.7</td><td>5.7</td><td>3.2</td><td>1.7</td><td>1.3</td><td>2.2</td><td>4.1</td><td>6.2</td><td>7.8</td><td>9.1</td><td>-54.78515435</td><td>-68.36238978</td></tr>
+    <tr><td>South America</td><td>Argentina</td><td>Viedma</td><td>14.2</td><td>22.1</td><td>20.8</td><td>18.3</td><td>13.8</td><td>9.9</td><td>7.2</td><td>6.6</td><td>8.2</td><td>10.5</td><td>14.3</td><td>17.7</td><td>20.6</td><td>-40.78878661</td><td>-62.93882685</td></tr>
+    <tr><td>South America</td><td>Bolivia</td><td>La Paz</td><td>8.8</td><td>9.3</td><td>9</td><td>8.9</td><td>8.8</td><td>8.2</td><td>7.3</td><td>6.8</td><td>8.2</td><td>8.7</td><td>10</td><td>10.5</td><td>9.7</td><td>-16.46332225</td><td>-68.06358081</td></tr>
+    <tr><td>South America</td><td>Bolivia</td><td>Santa Cruz de la Sierra</td><td>24.8</td><td>26.8</td><td>26.6</td><td>26.2</td><td>24.7</td><td>22.8</td><td>20.4</td><td>21.1</td><td>23</td><td>25.2</td><td>26.4</td><td>27.1</td><td>27</td><td>-17.81905204</td><td>-63.15995838</td></tr>
+    <tr><td>South America</td><td>Bolivia</td><td>Sucre</td><td>15.6</td><td>16.2</td><td>15.7</td><td>15.8</td><td>15.5</td><td>14.9</td><td>13.8</td><td>13.9</td><td>14.9</td><td>16.2</td><td>16.9</td><td>17.3</td><td>16.7</td><td>-19.03638833</td><td>-65.25962106</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Belém</td><td>25.9</td><td>25.6</td><td>25.4</td><td>25.5</td><td>25.6</td><td>25.8</td><td>26</td><td>25.7</td><td>26</td><td>26</td><td>26.4</td><td>26.5</td><td>26.2</td><td>-1.391475274</td><td>-48.42281181</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Belo Horizonte</td><td>21.1</td><td>22.8</td><td>23</td><td>22.9</td><td>21.7</td><td>19.6</td><td>18.5</td><td>18</td><td>19.7</td><td>21.1</td><td>21.7</td><td>22.2</td><td>22.2</td><td>-19.93804358</td><td>-43.92044887</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Brasília</td><td>20.6</td><td>21.2</td><td>21.3</td><td>21.5</td><td>20.9</td><td>19.6</td><td>18.5</td><td>18.3</td><td>20.3</td><td>21.7</td><td>21.6</td><td>21.1</td><td>21</td><td>-15.79158452</td><td>-47.887789</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Campos do Jordão</td><td>14.2</td><td>17.3</td><td>17.5</td><td>16.7</td><td>14.7</td><td>11.9</td><td>10.1</td><td>9.5</td><td>11.3</td><td>13.4</td><td>14.9</td><td>15.9</td><td>16.6</td><td>-22.7367896</td><td>-45.58859831</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Curitiba</td><td>16.8</td><td>20.4</td><td>20.6</td><td>19.6</td><td>17.2</td><td>14.5</td><td>13.1</td><td>12.9</td><td>14.1</td><td>15</td><td>16.5</td><td>18.2</td><td>19.3</td><td>-25.43925676</td><td>-49.27332662</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Florianópolis</td><td>20.9</td><td>24.9</td><td>25.1</td><td>24.5</td><td>22.2</td><td>19.2</td><td>17.2</td><td>16.4</td><td>17</td><td>18.3</td><td>20.3</td><td>22.2</td><td>24</td><td>-27.53380799</td><td>-48.50985472</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Fortaleza</td><td>26.6</td><td>27.1</td><td>26.9</td><td>26.4</td><td>26.2</td><td>26.2</td><td>25.8</td><td>25.6</td><td>26</td><td>26.4</td><td>26.9</td><td>27.2</td><td>27.3</td><td>-3.733017102</td><td>-38.52511069</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Goiânia</td><td>23.2</td><td>23.8</td><td>23.8</td><td>24</td><td>23.6</td><td>22.2</td><td>20.9</td><td>20.9</td><td>23</td><td>24.5</td><td>24.6</td><td>24.1</td><td>23.5</td><td>-16.66074022</td><td>-49.25081399</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Manaus</td><td>26.7</td><td>26.1</td><td>25.9</td><td>26</td><td>26.2</td><td>26.2</td><td>26.4</td><td>26.5</td><td>27.3</td><td>27.7</td><td>27.7</td><td>27.2</td><td>26.6</td><td>-3.066132045</td><td>-60.02574409</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Porto Alegre</td><td>19.5</td><td>24.6</td><td>24.6</td><td>23.1</td><td>19.9</td><td>16.9</td><td>14.3</td><td>14.4</td><td>15.2</td><td>16.8</td><td>19.1</td><td>21.2</td><td>23.3</td><td>-29.99122818</td><td>-51.22096301</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Recife</td><td>25.5</td><td>26.5</td><td>26.5</td><td>26.4</td><td>25.9</td><td>25.2</td><td>24.5</td><td>23.9</td><td>23.9</td><td>24.6</td><td>25.5</td><td>26.1</td><td>26.4</td><td>-8.050368245</td><td>-34.89477146</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Rio de Janeiro</td><td>23.8</td><td>26.3</td><td>26.6</td><td>26</td><td>24.4</td><td>22.8</td><td>21.8</td><td>21.3</td><td>21.8</td><td>22.2</td><td>22.9</td><td>24</td><td>25.3</td><td>-22.96320813</td><td>-43.24276778</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Salvador</td><td>25.3</td><td>26.4</td><td>26.5</td><td>26.6</td><td>26.2</td><td>25.2</td><td>24.3</td><td>23.7</td><td>23.6</td><td>24.3</td><td>25.1</td><td>25.5</td><td>25.9</td><td>-12.93879859</td><td>-38.40283161</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>São Joaquim</td><td>13.3</td><td>16.8</td><td>17.1</td><td>15.9</td><td>13.2</td><td>11.4</td><td>9.7</td><td>9.8</td><td>10.7</td><td>12</td><td>12.8</td><td>14.4</td><td>16</td><td>-28.24284642</td><td>-49.94678897</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>São Paulo</td><td>19.2</td><td>22.1</td><td>22.4</td><td>21.8</td><td>19.7</td><td>17.4</td><td>16.3</td><td>15.8</td><td>17.1</td><td>17.9</td><td>19</td><td>20.2</td><td>21.1</td><td>-23.50361929</td><td>-46.6723675</td></tr>
+    <tr><td>South America</td><td>Brazil</td><td>Vitória</td><td>24.8</td><td>26.9</td><td>27.4</td><td>27.1</td><td>25.9</td><td>24</td><td>22.8</td><td>22.4</td><td>22.6</td><td>23.2</td><td>24.3</td><td>24.9</td><td>26</td><td>-20.28022137</td><td>-40.30561443</td></tr>
+    <tr><td>South America</td><td>Chile</td><td>Antofagasta</td><td>16.7</td><td>20.2</td><td>20</td><td>19.1</td><td>17.1</td><td>15.5</td><td>14.2</td><td>13.7</td><td>14</td><td>14.7</td><td>15.8</td><td>17.3</td><td>18.9</td><td>-23.58309463</td><td>-70.28332407</td></tr>
+    <tr><td>South America</td><td>Chile</td><td>Concepción</td><td>12.4</td><td>16.5</td><td>15.9</td><td>14.5</td><td>12.3</td><td>10.7</td><td>9.5</td><td>8.8</td><td>9.3</td><td>10.2</td><td>11.9</td><td>13.8</td><td>15.6</td><td>-36.79438627</td><td>-72.90672497</td></tr>
+    <tr><td>South America</td><td>Chile</td><td>La Serena</td><td>13.6</td><td>17.1</td><td>16.9</td><td>15.6</td><td>13.7</td><td>12.3</td><td>10.9</td><td>10.7</td><td>10.9</td><td>11.6</td><td>12.9</td><td>14.6</td><td>16.1</td><td>-29.87945199</td><td>-71.20273718</td></tr>
+    <tr><td>South America</td><td>Chile</td><td>Punta Arenas</td><td>6.1</td><td>10.8</td><td>10.3</td><td>8.5</td><td>6.2</td><td>3.7</td><td>1.5</td><td>1.4</td><td>2.3</td><td>4.2</td><td>6.4</td><td>8.4</td><td>9.9</td><td>-53.16275154</td><td>-70.90812944</td></tr>
+    <tr><td>South America</td><td>Chile</td><td>Santiago</td><td>14.7</td><td>21.2</td><td>20.3</td><td>18.2</td><td>14.4</td><td>10.9</td><td>9</td><td>8.2</td><td>9.8</td><td>12</td><td>15</td><td>17.7</td><td>20.1</td><td>-33.42303516</td><td>-70.6323513</td></tr>
+    <tr><td>South America</td><td>Colombia</td><td>Bogotá</td><td>14.4</td><td>14.3</td><td>14.5</td><td>14.9</td><td>14.9</td><td>15</td><td>14.5</td><td>14.6</td><td>14.1</td><td>14.3</td><td>14.3</td><td>14.4</td><td>14.6</td><td>4.711928851</td><td>-74.05769115</td></tr>
+    <tr><td>South America</td><td>Colombia</td><td>Barranquilla</td><td>27.4</td><td>26.5</td><td>26.7</td><td>27</td><td>27.5</td><td>28.1</td><td>28.1</td><td>27.9</td><td>27.9</td><td>27.6</td><td>27.2</td><td>27.4</td><td>26.9</td><td>11.00821888</td><td>-74.81106808</td></tr>
+    <tr><td>South America</td><td>Colombia</td><td>Medellín</td><td>22.5</td><td>22.4</td><td>22.7</td><td>22.7</td><td>22.4</td><td>22.6</td><td>22.9</td><td>23.1</td><td>23.1</td><td>22.4</td><td>21.8</td><td>21.8</td><td>21.9</td><td>6.246932575</td><td>-75.56181434</td></tr>
+    <tr><td>South America</td><td>Ecuador</td><td>Guayaquil</td><td>26.5</td><td>27.1</td><td>27.3</td><td>28</td><td>27.8</td><td>26.9</td><td>25.7</td><td>25</td><td>25.2</td><td>25.5</td><td>25.6</td><td>26.2</td><td>27.1</td><td>-2.069422919</td><td>-80.0689935</td></tr>
+    <tr><td>South America</td><td>Ecuador</td><td>Quito</td><td>14.4</td><td>14.2</td><td>14</td><td>14.3</td><td>14.3</td><td>14.5</td><td>14.5</td><td>14.6</td><td>15</td><td>14.8</td><td>14.3</td><td>14.3</td><td>14.4</td><td>-0.18316056</td><td>-78.47380609</td></tr>
+    <tr><td>South America</td><td>Falkland Islands</td><td>Stanley</td><td>5.6</td><td>9.5</td><td>8.9</td><td>8.1</td><td>6.1</td><td>3.9</td><td>2.2</td><td>1.9</td><td>2.2</td><td>3.9</td><td>5.3</td><td>7</td><td>8.1</td><td>-51.69481991</td><td>-57.85589253</td></tr>
+    <tr><td>South America</td><td>French Guiana</td><td>Cayenne</td><td>26.7</td><td>26.2</td><td>26.3</td><td>26.5</td><td>26.8</td><td>26.7</td><td>26.6</td><td>26.6</td><td>27</td><td>27.2</td><td>27.3</td><td>27</td><td>26.6</td><td>4.922589269</td><td>-52.31508667</td></tr>
+    <tr><td>South America</td><td>Guyana</td><td>Georgetown</td><td>26.8</td><td>26.1</td><td>26.4</td><td>26.7</td><td>27</td><td>26.8</td><td>26.5</td><td>26.6</td><td>27</td><td>27.5</td><td>27.6</td><td>27.2</td><td>26.4</td><td>6.800922602</td><td>-58.15428056</td></tr>
+    <tr><td>South America</td><td>Paraguay</td><td>Asunción</td><td>22.7</td><td>27.5</td><td>26.9</td><td>25.9</td><td>22.8</td><td>19.8</td><td>17.6</td><td>17.9</td><td>18.6</td><td>20.5</td><td>23.2</td><td>24.9</td><td>26.5</td><td>-25.2620663</td><td>-57.57920832</td></tr>
+    <tr><td>South America</td><td>Peru</td><td>Cusco</td><td>12.5</td><td>12.9</td><td>12.7</td><td>12.8</td><td>12.7</td><td>12</td><td>11.4</td><td>10.8</td><td>11.5</td><td>12.7</td><td>13.6</td><td>13.6</td><td>13.2</td><td>-13.53106414</td><td>-71.92172354</td></tr>
+    <tr><td>South America</td><td>Peru</td><td>Lima</td><td>19.2</td><td>22.1</td><td>22.7</td><td>22.2</td><td>20.6</td><td>18.8</td><td>17.5</td><td>16.7</td><td>16.2</td><td>16.4</td><td>17.3</td><td>18.7</td><td>20.7</td><td>-11.96386838</td><td>-76.94765294</td></tr>
+    <tr><td>South America</td><td>Peru</td><td>Piura</td><td>24.5</td><td>26.8</td><td>27.8</td><td>27.8</td><td>26.6</td><td>24.5</td><td>22.9</td><td>21.8</td><td>21.9</td><td>22.3</td><td>22.9</td><td>23.6</td><td>25.2</td><td>-5.175817915</td><td>-80.65547721</td></tr>
+    <tr><td>South America</td><td>Suriname</td><td>Paramaribo</td><td>26.8</td><td>26</td><td>26</td><td>26.2</td><td>26.7</td><td>26.5</td><td>26.5</td><td>26.7</td><td>27.4</td><td>27.8</td><td>27.9</td><td>27.3</td><td>26.4</td><td>5.85344348</td><td>-55.211838</td></tr>
+    <tr><td>South America</td><td>Uruguay</td><td>Montevideo</td><td>16.7</td><td>23</td><td>22.5</td><td>20.6</td><td>17.2</td><td>14</td><td>11.1</td><td>10.9</td><td>11.7</td><td>13.4</td><td>16</td><td>18.6</td><td>21.3</td><td>-34.87920116</td><td>-56.14646823</td></tr>
+    <tr><td>South America</td><td>Venezuela</td><td>Caracas</td><td>22</td><td>20.2</td><td>20.8</td><td>21.7</td><td>22.7</td><td>23.2</td><td>22.6</td><td>22.2</td><td>22.3</td><td>22.7</td><td>22.4</td><td>22</td><td>20.7</td><td>10.48119002</td><td>-66.91303437</td></tr>
+    
+        </tbody>       
+            </table>
+            
+        </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="container text-center">
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-sm-4">
+        <h3>Support</h3>
+        <br>
+        <a href="#" class="sup">About Us</a>
+        <a href="#" class="sup">Contact</a>
+        <a href="#" class="sup">Privacy</a>
+        </div>
+
+        <div class="col-sm-4 border-start border-end">
+        <img src="resources/images/brand_white-01.svg" class="icon">
+        <div>
+            <p class="pt-2"><small>All Rights Reserved © 2021</small></p>
+        </div>
+        </div>
+
+        <div class="col-sm-4">
+        <h3>Connect</h3>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-youtube"></a>
+        </div>
+        
+    </div>
+
+    </footer>
+</div>
+
+</div>
+</div>
+
+<script>
+    function springBackground(){
+        document.getElementById("hero").classList.add("springBackground")
+        document.getElementById("hero").classList.remove("winterBackground","summerBackground","fallBackground")
+        document.getElementById("raining").classList.remove("fadeOut")
+        document.getElementById("raining").classList.add("fadeIn")
+        
+        //winter css 
+        document.getElementById("snowflakes").classList.remove("fadeIn")
+        document.getElementById("snowflakes").classList.add("fadeOut")
+        
+        //fall css
+        document.getElementById("leaves").classList.remove("fadeIn")
+        document.getElementById("leaves").classList.add("fadeOut")
+
+        //summer css
+        document.getElementById("sky").classList.remove("fadeIn")
+        document.getElementById("sky").classList.add("fadeOut")
+    };
+
+    function winterBackground(){
+        document.getElementById("hero").classList.add("winterBackground")
+        document.getElementById("hero").classList.remove("springBackground","summerBackground","fallBackground")                  
+        document.getElementById("snowflakes").classList.remove("fadeOut")        
+        document.getElementById("snowflakes").classList.add("fadeIn")
+        
+        //spring css
+        document.getElementById("raining").classList.remove("fadeIn")
+        document.getElementById("raining").classList.add("fadeOut")
+
+        //fall css
+        document.getElementById("leaves").classList.remove("fadeIn")
+        document.getElementById("leaves").classList.add("fadeOut")  
+        
+        //summer css
+        document.getElementById("sky").classList.remove("fadeIn")
+        document.getElementById("sky").classList.add("fadeOut")
+            };
+
+    function fallBackground(){
+        document.getElementById("hero").classList.add("fallBackground")
+        document.getElementById("hero").classList.remove("springBackground","summerBackground","winterBackground")
+        document.getElementById("leaves").classList.remove("fadeOut")
+        document.getElementById("leaves").classList.add("fadeIn")
+
+        //winter css 
+        document.getElementById("snowflakes").classList.remove("fadeIn")
+        document.getElementById("snowflakes").classList.add("fadeOut")
+
+        //spring css
+        document.getElementById("raining").classList.remove("fadeIn")
+        document.getElementById("raining").classList.add("fadeOut")
+
+        //summer css
+        document.getElementById("sky").classList.remove("fadeIn")
+        document.getElementById("sky").classList.add("fadeOut")
+
+    };
+
+    function summerBackground(){
+        document.getElementById("hero").classList.add("summerBackground")
+        document.getElementById("hero").classList.remove("springBackground","fallBackground","winterBackground")
+        document.getElementById("sky").classList.remove("fadeOut")
+        document.getElementById("sky").classList.add("fadeIn")
+
+        //winter css 
+        document.getElementById("snowflakes").classList.remove("fadeIn")
+        document.getElementById("snowflakes").classList.add("fadeOut")
+
+        //spring css
+        document.getElementById("raining").classList.remove("fadeIn")
+        document.getElementById("raining").classList.add("fadeOut")
+
+        //fall css
+        document.getElementById("leaves").classList.remove("fadeIn")
+        document.getElementById("leaves").classList.add("fadeOut")
+    };
+ 
+//rain background
+    (function(){
+	
+	var c = document.getElementById("c"),
+			ctx = c.getContext("2d");
+	
+	c.width = innerWidth;
+	c.height = innerHeight;
+	
+	var lines = [],
+			maxSpeed = 5,
+			spacing = 5,
+			xSpacing = 0,
+			n = innerWidth / spacing,
+			colors = ["#3B8686", "#79BD9A", "#A8DBA8", "#0B486B"],
+			i;
+	
+	for (i = 0; i < n; i++){
+		xSpacing += spacing;
+		lines.push({
+			x: xSpacing,
+			y: Math.round(Math.random()*c.height),
+			width: 0.3,
+			height: Math.round(Math.random()*(innerHeight/20)),
+			speed: Math.random()*maxSpeed + 1,
+			color: colors[Math.floor(Math.random() * colors.length)]
+		});
+	}
+	
+	
+	function draw(){
+		var i;
+		ctx.clearRect(0,0,c.width,c.height);
+		
+		for (i = 0; i < n; i++){
+			ctx.fillStyle = lines[i].color;
+			ctx.fillRect(lines[i].x, lines[i].y, lines[i].width, lines[i].height);
+			lines[i].y += lines[i].speed;
+			
+			if (lines[i].y > c.height)
+				lines[i].y = 0 - lines[i].height;
+		}
+		
+		requestAnimationFrame(draw);
+		
+	}
+	
+	draw();
+	
+}());
+</Script>
+
+
+<!--Chart data + rendering-->
+<script>
+var myData = [];
+//read the data from the HTML table
+var data = document.getElementById("myTable");
+var unique_data_Array = [];
+for (var i = 0; i < data.rows.length; i++) {
+    unique_data_Array.push(data.rows[i])
+}
+//create array for chart labels
+var mySeries = ["Africa", "North America", "South America", "Asia", "Europe", "Oceania"];
+//find array values that match Africa and push to new array, then convert array to integer
+var africa = [];
+var j = 0;
+for (j; j < data.rows.length; j++) {
+    if (data.rows[j].cells[0].innerHTML.indexOf("Africa") >= 0)
+        africa.push(data.rows[j].cells[3].innerHTML);
+}
+var africa = africa.map(Number);
+//sum the array for Africa, find average, and push to new array
+function getSum(total, num) {
+    return total + num;
+}
+myData.push(africa.reduce(getSum, 0) / africa.length);
+//North America ibid
+var north = [];
+var j = 0;
+for (j; j < data.rows.length; j++) {
+    if (data.rows[j].cells[0].innerHTML.indexOf("North America") >= 0)
+        north.push(data.rows[j].cells[3].innerHTML);
+}
+var north = north.map(Number);
+//North America ibid
+function getSum(total, num) {
+    return total + num;
+}
+myData.push(north.reduce(getSum, 0) / north.length);
+//South America ibid
+var south = [];
+var j = 0;
+for (j; j < data.rows.length; j++) {
+    if (data.rows[j].cells[0].innerHTML.indexOf("South America") >= 0)
+        south.push(data.rows[j].cells[3].innerHTML);
+}
+var south = south.map(Number);
+//South America ibid
+function getSum(total, num) {
+    return total + num;
+}
+myData.push(south.reduce(getSum, 0) / south.length);
+//Asia ibid
+var asia = [];
+var j = 0;
+for (j; j < data.rows.length; j++) {
+    if (data.rows[j].cells[0].innerHTML.indexOf("Asia") >= 0)
+        asia.push(data.rows[j].cells[3].innerHTML);
+}
+var asia = asia.map(Number);
+//Asia ibid
+function getSum(total, num) {
+    return total + num;
+}
+myData.push(asia.reduce(getSum, 0) / asia.length);
+//Europe ibid
+var euro = [];
+var j = 0;
+for (j; j < data.rows.length; j++) {
+    if (data.rows[j].cells[0].innerHTML.indexOf("Europe") >= 0)
+        euro.push(data.rows[j].cells[3].innerHTML);
+}
+var euro = euro.map(Number);
+//Europe ibid
+function getSum(total, num) {
+    return total + num;
+}
+myData.push(euro.reduce(getSum, 0) / euro.length);
+//Oceania ibid
+var ocea = [];
+var j = 0;
+for (j; j < data.rows.length; j++) {
+    if (data.rows[j].cells[0].innerHTML.indexOf("Oceania") >= 0)
+        ocea.push(data.rows[j].cells[3].innerHTML);
+}
+var ocea = ocea.map(Number);
+//Oceania ibid
+function getSum(total, num) {
+    return total + num;
+}
+myData.push(ocea.reduce(getSum, 0) / ocea.length);
+//Round myData to two decimals and convert to number
+var x = 0;
+var len = myData.length
+while (x < len) {
+    myData[x] = myData[x].toFixed(2);
+    x++
+}
+var myData = myData.map(Number);
+
+//create list of all countries and remove duplicates
+function removeDuplicates(data) {
+    return data.filter((value, index) => data.indexOf(value) === index);
+}
+var countries = [];
+var j = 0;
+for (j; j < data.rows.length; j++) {
+    countries.push(data.rows[j].cells[1].innerHTML);
+}
+countries = removeDuplicates(countries);
+countries.shift();
+
+//run a nested loop to get average temp for each country    
+var countryTemp = []
+for (const element of countries) {
+    console.log(element);
+
+    var temperatures = []
+    for (j = 0; j < data.rows.length; j++) {
+        if (data.rows[j].cells[1].innerHTML.indexOf(element) >= 0)
+            temperatures.push(data.rows[j].cells[3].innerHTML);
+    }
+    //output average temp for each country to array, and round array to 2 decimals
+    var temperatures = temperatures.map(Number);
+    countryTemp.push(temperatures.reduce(getSum, 0) / temperatures.length);
+}
+
+//convert countryTemp to number 
+var x = 0;
+var len = countryTemp.length
+while (x < len) {
+    countryTemp[x] = countryTemp[x].toFixed(2);
+    x++
+}
+var countryTemp = countryTemp.map(Number);
+
+
+//run a nested loop to get average latitude by country    
+var countryLat = []
+for (const element of countries) {
+    console.log(element);
+
+    var latitude = []
+    for (j = 0; j < data.rows.length; j++) {
+        if (data.rows[j].cells[1].innerHTML.indexOf(element) >= 0)
+            latitude.push(data.rows[j].cells[16].innerHTML);
+    }
+
+    //*output average latitude for each country to array, and round array to 2 decimals
+    var latitude = latitude.map(Number);
+    countryLat.push(latitude.reduce(getSum, 0) / latitude.length);
+}
+
+//convert countryLat to number 
+var x = 0;
+var len = countryLat.length
+while (x < len) {
+    countryLat[x] = countryLat[x].toFixed(2);
+    x++
+}
+var countryLat = countryLat.map(Number);
+
+//run a nested loop to get average longitude by country    
+var countryLong = []
+for (const element of countries) {
+    console.log(element);
+
+    var longitude = []
+    for (j = 0; j < data.rows.length; j++) {
+        if (data.rows[j].cells[1].innerHTML.indexOf(element) >= 0)
+            longitude.push(data.rows[j].cells[17].innerHTML);
+    }
+
+    //*output average longitude for each country to array, and round array to 2 decimals
+    var longitude = longitude.map(Number);
+    countryLong.push(longitude.reduce(getSum, 0) / longitude.length);
+}
+
+//convert countryLong to number 
+var x = 0;
+var len = countryLong.length
+while (x < len) {
+    countryLong[x] = countryLong[x].toFixed(2);
+    x++
+}
+var countryLong = countryLong.map(Number);
+
+//SCATTERPLOT DATA: Next, we need to get all the data for each country into an associative array (object array) to make it easy to push data to the 3D scatterplot (my earlier code could've made this easier)
+let globe = countries.map(country => { // using map, we can transform each incoming country into a country/continent object
+    let continent = 'N/A'; // just so we have somethign in case we dont find a continent
+    [...data.rows].forEach(row => { // data is the table, rows are the <tr> tags, but we need to make it iterable for the loop, so we wrap it in a spread [...] 
+        if (row.cells[1].innerText.trim() === country)
+            continent = row.cells[0].innerText.trim();
+    })
+    return {
+        country: country,
+        continent: continent
+    }; // we return an object back to our map
+});
+
+//Next, we need to add our calculated values for lat, long, and temp to the object array.
+for (j = 0; j < globe.length; j++) {
+    globe[j].lat = countryLat[j];
+    globe[j].long = countryLong[j];
+    globe[j].temp = countryTemp[j];
+}
+
+//Next, we creates inidividual arrays for each continent to push for each series in the scatter chart
+var africaSeries = globe.filter(function(p) {
+    return p.continent === "Africa"
+}).map(v => ({
+    name: v.country,
+    x: v.lat,
+    y: v.long,
+    z: v.temp
+}));
+var asiaSeries = globe.filter(function(p) {
+    return p.continent === "Asia"
+}).map(v => ({
+    name: v.country,
+    x: v.lat,
+    y: v.long,
+    z: v.temp
+}));
+var northSeries = globe.filter(function(p) {
+    return p.continent === "North America"
+}).map(v => ({
+    name: v.country,
+    x: v.lat,
+    y: v.long,
+    z: v.temp
+}));
+var southSeries = globe.filter(function(p) {
+    return p.continent === "South America"
+}).map(v => ({
+    name: v.country,
+    x: v.lat,
+    y: v.long,
+    z: v.temp
+}));
+var euroSeries = globe.filter(function(p) {
+    return p.continent === "Europe"
+}).map(v => ({
+    name: v.country,
+    x: v.lat,
+    y: v.long,
+    z: v.temp
+}));
+var oceaSeries = globe.filter(function(p) {
+    return p.continent === "Oceania"
+}).map(v => ({
+    name: v.country,
+    x: v.lat,
+    y: v.long,
+    z: v.temp
+}));
+
+//HighChart prep? 
+let draw = false;
+
+init();
+
+function init() {
+    // initialize DataTables
+    const table = $("#myTable").DataTable({
+        "columnDefs": [
+          { "targets": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "visible": false, "searchable": false },
+          { "targets": [ 16,17 ], "render": $.fn.dataTable.render.number(',', '.', 2)},
+          { "targets": [ 1 ], className: "boldColumn" },
+          {"targets": [0], responsivePriority: 10001 },
+          {"targets": [1], responsivePriority: 4 },
+          {"targets": [2], responsivePriority: 3 },
+          {"targets": [3], responsivePriority: 2 },
+          {"targets": [4], responsivePriority: 5 },
+          {"targets": [5], responsivePriority: 6 }          
+      ]      
+    });
+    // table events
+    setTableEvents(table);
+}
+
+
+//SETUP BOTH CHARTS
+$(function() {
+
+    // If you need to specify any global settings such as colors or other settings you can do that here
+    Highcharts.setOptions({
+        chart: {
+            style: {
+                fontFamily: 'Roboto'
+            }
+        },
+        colors: Highcharts.getOptions().colors.map(function(color) {
+            return {
+                radialGradient: {
+                    cx: 0.4,
+                    cy: 0.3,
+                    r: 0.5
+                },
+                stops: [
+                    [0, color],
+                    [1, Highcharts.color(color).brighten(-0.2).get('rgb')]
+                ]
+            };
+        })
+    });
+
+    // Build Chart A
+    var chart = new Highcharts.Chart({
+
+        chart: {
+            renderTo: 'chart1',
+
+            backgroundColor: '#212529',
+            type: 'column',
+            options3d: {
+                enabled: true,
+                alpha: 5,
+                beta: -15,
+                depth: 50,
+                viewDistance: 25
+            }
+        },
+        title: {
+            text: 'Year Avg Temp (°C) by Continent'
+        },
+        subtitle: {
+            text: '(Click and drag)'
+         },
+        plotOptions: {
+            column: {
+                depth: 25
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        xAxis: [{
+            categories: mySeries,
+            labels: {
+                rotation: -45
+            }
+        }],
+        yAxis: [{
+            // first yaxis
+            title: {
+                text: "Year Avg Temperature (°C) "
+            }
+        }],
+        plotOptions: {
+            series: {
+                colorByPoint: true
+            }
+        },
+        series: [{
+            data: myData,
+            name: "",
+            colors: ["#FFFCB3", "#CE3233", "#2EA434", "#FF7F02", "#0C72B4", "#903195"]
+        }]
+    });
+ // Add mouse events for rotation
+ $(chart.container).bind('mousedown.hc touchstart.hc', function(eStart) {
+        eStart = chart.pointer.normalize(eStart);
+
+        var posX = eStart.pageX,
+            posY = eStart.pageY,
+            alpha = chart.options.chart.options3d.alpha,
+            beta = chart.options.chart.options3d.beta,
+            newAlpha,
+            newBeta,
+            sensitivity = 5; // lower is more sensitive
+
+        $(document).bind({
+            'mousemove.hc touchdrag.hc': function(e) {
+                // Run beta
+                newBeta = beta + (posX - e.pageX) / sensitivity;
+                chart.options.chart.options3d.beta = newBeta;
+
+                // Run alpha
+                newAlpha = alpha + (e.pageY - posY) / sensitivity;
+                chart.options.chart.options3d.alpha = newAlpha;
+
+                chart.redraw(false);
+            },
+            'mouseup touchend': function() {
+                $(document).unbind('.hc');
+            }
+        });
+    });
+
+  });
+
+// Build Chart B
+  $(function() {
+    var chart = new Highcharts.Chart({
+
+        chart: {
+            renderTo: 'chart2',
+            backgroundColor: '#212529',
+            margin: 75,
+            marginBottom: 90,
+            marginLeft: 200,
+            type: 'scatter3d',
+            animation: false,
+            options3d: {
+                enabled: true,
+                alpha: 10,
+                beta: 30,
+                depth: 250,
+                viewDistance: 5,
+                fitToPlot: false,
+                frame: {
+                    bottom: {
+                        size: 1,
+                        color: 'rgba(0,0,0,0.02)'
+                    },
+                    back: {
+                        size: 1,
+                        color: 'rgba(0,0,0,0.04)'
+                    },
+                    side: {
+                        size: 1,
+                        color: 'rgba(0,0,0,0.06)'
+                    }
+                }
+            }
+        },
+        title: {
+            text: 'Country Avg Temp (°C) by Lat / Long'
+        },
+        subtitle: {
+            text: '(Click and drag)'
+         },
+        tooltip: { //this section lets the chart read country names for individual points
+            formatter: function(chart) {
+                var p = this.point;
+                return p.name + '<br>' +
+                    p.x + ', ' + p.y + ', ' + p.z;
+            }
+        },
+
+        plotOptions: {
+            scatter: {
+                width: 10,
+                height: 10,
+                depth: 10
+            }
+        },
+        yAxis: {
+            min: -105,
+            max: 180,
+            title: {
+                text: "Longitude"
+            }
+        },
+        xAxis: {
+            min: -55,
+            max: 65,
+            gridLineWidth: 1,
+            title: {
+                text: "Latitude"
+            }
+        },
+        zAxis: {
+            min: -5,
+            max: 35,
+            showFirstLabel: false,
+            title: {
+                text: "Year Avg Temperature (°C)"
+            }
+        },
+        legend: {
+            backgroundColor: "",
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'middle',
+            itemMarginTop: 25,
+            floating: false,
+            x: -20
+
+        },
+        series: [{
+                name: "Africa",
+                color: "#FFFCB3",
+                data: africaSeries
+            },
+            {
+                name: "Asia",
+                color: "#FF7F02",
+                data: asiaSeries
+            },
+            {
+                name: "North America",
+                color: "#CE3233",
+                data: northSeries
+            },
+            {
+                name: "South America",
+                color: "#2EA434",
+                data: southSeries
+            },
+            {
+                name: "Europe",
+                color: "#0C72B4",
+                data: euroSeries
+            },
+            {
+                name: "Oceania",
+                color: "#903195",
+                data: oceaSeries
+            }
+        ]
+    })
+
+    // Add mouse events for rotation
+    $(chart.container).bind('mousedown.hc touchstart.hc', function(eStart) {
+        eStart = chart.pointer.normalize(eStart);
+
+        var posX = eStart.pageX,
+            posY = eStart.pageY,
+            alpha = chart.options.chart.options3d.alpha,
+            beta = chart.options.chart.options3d.beta,
+            newAlpha,
+            newBeta,
+            sensitivity = 5; // lower is more sensitive
+
+        $(document).bind({
+            'mousemove.hc touchdrag.hc': function(e) {
+                // Run beta
+                newBeta = beta + (posX - e.pageX) / sensitivity;
+                chart.options.chart.options3d.beta = newBeta;
+
+                // Run alpha
+                newAlpha = alpha + (e.pageY - posY) / sensitivity;
+                chart.options.chart.options3d.alpha = newAlpha;
+
+                chart.redraw(false);
+            },
+            'mouseup touchend': function() {
+                $(document).unbind('.hc');
+            }
+        });
+    });
+
+});
+
+function setTableEvents(table) {
+    // listen for page clicks
+    table.on("page", () => {
+        draw = true;
+    });
+
+    // listen for updates and adjust the chart accordingly
+    table.on("draw", () => {
+        if (draw) {
+            draw = false;
+        } else {
+            const tableData = getTableData(table);
+            createHighcharts(tableData);
+        }
+    });
+}
+
+</script>
+  
+
+    <!--Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
